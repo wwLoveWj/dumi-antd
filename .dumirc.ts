@@ -1,6 +1,6 @@
 import { defineConfig } from 'dumi';
 
-const repo = 'docs';
+const repo = 'dumi-antd';
 export default defineConfig({
   title: repo,
   outputPath: 'docs',
