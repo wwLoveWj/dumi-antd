@@ -4,10 +4,7 @@ const repo = 'dumi-umi-ww';
 export default defineConfig({
   title: repo,
   outputPath: 'docs',
-  mode: 'doc',
   hash: true,
-  // 使用 webpack 5进行构建。
-  webpack5: {},
   themeConfig: {
     name: 'dumi-umi-ww',
     nav: [
