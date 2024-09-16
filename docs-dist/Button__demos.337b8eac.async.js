@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdumi_umi_ww=self.webpackChunkdumi_umi_ww||[]).push([[570],{42990:function(_,n,u){u.r(n);var E=u(18226),i=u(67294),t=u(85893);n.default=function(){return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(E.Button,{type:"default",children:"\u9ED8\u8BA4\u6309\u94AE"})," \xA0",(0,t.jsx)(E.Button,{type:"primary",children:"\u4E3B\u8981\u6309\u94AE"})]})}}}]);
