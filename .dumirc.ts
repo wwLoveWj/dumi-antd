@@ -1,7 +1,13 @@
 import { defineConfig } from 'dumi';
 
+const repo = 'dumi-umi-ww';
 export default defineConfig({
-  outputPath: 'docs-dist',
+  title: repo,
+  outputPath: 'docs',
+  mode: 'doc',
+  hash: true,
+  // 使用 webpack 5进行构建。
+  webpack5: {},
   themeConfig: {
     name: 'dumi-umi-ww',
     nav: [
@@ -12,6 +18,9 @@ export default defineConfig({
       { title: '更新记录', link: '/version/changelog' },
     ],
   },
+  // github page
+  base: `/${repo}/`,
+  publicPath: `/${repo}/`,
   styles: [
     `.dumi-default-header-left {
       width: 220px !important;
