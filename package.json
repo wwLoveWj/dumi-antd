@@ -30,22 +30,22 @@
     ]
   },
   "lint-staged": {
-    "*.{md,json}": [
+    "src/**/*.{md,json}": [
       "prettier --write --no-error-on-unmatched-pattern"
     ],
-    "*.{css,less}": [
+    "src/**/*.{css,less}": [
       "stylelint --fix",
       "prettier --write"
     ],
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{ts,tsx}": [
+    "src/**/*.{ts, tsx}": [
       "eslint --fix",
       "prettier --parser=typescript --write",
       "npm run test:staged"
     ]
+  },
+  "dependencies": {
+    "ahooks": "^3.8.1",
+    "qs": "^6.13.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
@@ -82,9 +82,5 @@
   },
   "authors": [
     "ww"
-  ],
-  "dependencies": {
-    "ahooks": "^3.8.1",
-    "qs": "^6.13.0"
-  }
+  ]
 }

@@ -1,2 +1,11 @@
 /dist
 *.yaml
+node_modules/
+
+.dumi
+dist/
+docs/
+
+src/docs/version/CHANGELOG.md
+src/docs/**/*.md
+src/**/*.md
