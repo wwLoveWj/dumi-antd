@@ -18,6 +18,7 @@ export default defineConfig({
     nav: [
       { title: '介绍', link: '/guide' },
       { title: '设计', link: '/design' },
+      { title: '规范', link: '/standard' },
       { title: '快速上手', link: '/start' },
       { title: '组件', link: '/components' }, // components会默认自动对应到src文件夹
       { title: '更新记录', link: '/version/changelog' },
@@ -33,6 +34,11 @@ export default defineConfig({
   ],
   resolve: {
     docDirs: ['src/docs', './CHANGELOG.md'],
-    atomDirs: [{ type: 'component', dir: 'src/components' }],
+    atomDirs: [
+      { type: 'component', dir: 'src/components' },
+      { type: 'component', dir: 'src/hooks' },
+      { type: 'component', dir: 'src/design' },
+      { type: 'component', dir: 'src/utils' },
+    ],
   },
 });

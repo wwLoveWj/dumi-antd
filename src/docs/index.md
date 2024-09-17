@@ -1,7 +1,7 @@
 ---
 hero:
   title: Antd-Wj
-  description: 让 <a href="https://ant.design/components/" target="_blank" rel="noreferrer">Antd 组件</a> 开发更简单
+  description: 让 <a href="https://ant.design/components/overview" target="_blank" rel="noreferrer">Antd 组件</a> 开发更简单
   actions:
     - text: 立即上手
       link: /start

@@ -1,116 +1,147 @@
 ---
-title: 开发规范
-order: 3
+title: 设计规范
+order: 0
 ---
+# 设计规范
 
-# 开发规范
+为了保证项目内使用的颜色统一且符合设计规范，故而提供如下能力：
 
-## 版本号规范
+1. 导出一个 `modifyVars`配置对象，在项目中通过配置 `less loader`统一覆盖 `antd`的默认样式，使得 `antd`组件样式与公司设计规范 保持一致。
+2. 导出一个 `less`文件，将公司设计规范中的公共样式提取为 `less`变量，项目中引入这个 `less`文件即可使用这些 `less`变量。
+3. 导出一个 `designColor`对象，以便在 `jsx/tsx`文件中也能使用与 `less`变量相同的公共样式。
 
-在组件库开发过程中可能需要在真实的项目中去调试，优先使用 `yarn link` 进行本地调试，确认无误之后再发布正式版本。
+## 使用方式
 
-如果觉得当前改动比较大，担心发布之后会影响线上环境，可发布先行版本号，待稳定之后再发布正式版本。
+### 覆盖 antd 的 less 变量
 
-```
-X.Y.Z
-X.Y.Z-T
-```
+通过 `webpack`的 `less loader`使用导出的 `modifyVars`对象覆盖 `antd`的 `less`变量。若是 umi 项目可在 `config/config.ts` 中配置。例如：
 
-- X 表示主版本号，当 API 的兼容性变化时，X 需递增。
-- Y 表示次版本号，当增加功能时(不影响 API 的兼容性)。
-- Z 表示修订号，当做 Bug 修复时(不影响 API 的兼容性)，Z 需递增。
-- T 先行版本号，先行版本号可以作为发布正式版之前的版本，格式是在修订版本号后面加上一个连接号（-），再加上一连串以点（.）分割的标识符，标识符可以由英文、数字和连接号（[0-9A-Za-z-]）组成。
+```typescript
+// 注意：需要从 cjs 中导入 modifyVars 对象
+import modifyVars from 'dumi-umi-ww/dist/design/modifyVars';
+import { defineConfig } from 'umi';
 
-:::warning
+const config = defineConfig({
+    // ...其他配置
+    modifyVars: {
+        ...modifyVars
+    }
+    // ...其他配置
+});
 
-先行版本号只用 `beta`，便于统一化管理和降低维护复杂度。
-
-:::
-
-正式版本号示例: `1.2.3` `1.0.0` `5.2.1`
-
-开发版号本示例: `1.2.3-beta.1` `1.0.0-beta.20` `5.2.1-beta.4`
-
-更多细节请看 <a href="http://semver.org/lang/zh-CN/" target="_blank">语义化版本（Semantic Versioning)</a> （内网被墙）
-
-## Git Message 规范
-
-项目中有配置 `commitizen`项目，执行 `yarn commmit` 之后回答它提出的问题，便可生成规范的 git message。如果命令找不到， 请在 `packages.json scripts` 添加 `"commit": "cz"`。
-
-也可以采用手写的方式遵循以下的规范，例如 `git commit -m "feat(wj-button): 新增 request 参数远程请求可选项目"`
-
-```shell
-<type>(<scope>): <subject>
-<空行>
-<body>
-<空行>
-<footer>
+export default config;
 ```
 
-_type_
+### 使用 less 变量
 
-- feat: 一项新的功能（feature）
-- fix: 一个 bug 的修复
-- docs: 仅文档更改
-- style: 不会影响代码含义的更改（空格，格式，缺少分号等）
-- refactor: 重构（既不修复 bug 也不增加新功能的代码更改）
-- perf: 代码优化,提高性能
-- test: 添加缺失的测试或更正现有的测试
-- build: 影响构建系统或外部依赖项的更改（示例范围:gulp，broccoli，npm）
-- ci: 对我们的 CI 配置文件和脚本的更改（示例范围:Circle，BrowserStack，SauceLabs）
-- chore: 其他不包含 src 和 test 文件的修改
-- revert: 恢复上一个 commit
+在项目的 `less`文件中导入公共的 `less`变量定义文件，例如：
 
-_scope_
+```less
+@import 'dumi-umi-ww/dist/design/global/index.less';
 
-用于说明 commit 影响的范围，比如相关模块或组件的类型、名称。例如：
-
-```
-fix(wj-button):
-chore(deps):
-chore(build):
+.lessVars {
+  width: 200px;
+  height: 50px;
+  margin-top: @space-md;
+  font-size: @space-md;
+  line-height: 50px;
+  text-align: center;
+  background-color: @error-color;
+  border-radius: @border-radius-lg;
+}
 ```
 
-_subject_
+### 使用 designColor 对象
 
-commit 的简单描述，不超过 50 个字符 - 以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes - 第一个字母小写 - 结尾不加句号（.）
+在项目的 `jsx/tsx`文件中可以通过 `designColor`对象来使用公共的样式变量，例如：
 
-```
-fix(wj-button): 初始化Button组件
-chore(deps): 更新 moment 至 2.24.0 版本
-chore(build): 修改生产环境命令配置
-```
+```typescript
+import { designColor } from 'dumi-umi-ww';
 
-_body_
-
-Body 对本次 commit 的详细描述
-
-```
-fix(wj-button): 修复 xxx参数不兼容问题
-
-```
-
-_footer_
-
-Footer 部分只用于两种情况。
-
-- 不兼容变动
-
-如果当前代码与上一个版本不兼容，则 Footer 部分以 BREAKING CHANGE 开头，后面是对变动的描述、以及变动理由和迁移方法。
-
-```
-fix(wj-button): xxx信息
-
-BREAKING CHANGE: xxx，统一成标准的方式，原来的 props 废弃掉
-
+export const App = () => {
+    return (
+        <div
+            style={{
+              width: 200,
+              height: 50,
+              lineHeight: '50px',
+              textAlign: 'center',
+              marginTop: designColor.space.md,
+              fontSize: designColor.fontSize.large,
+              borderRadius: designColor.fontSize.medium,
+              backgroundColor: designColor.color.success
+            }}
+          >
+            测试designColor
+          </div>
+     )
+}
 ```
 
-- 关闭 Issue 或者 bug
+## 公司设计规范样式速查表
 
-如果当前 commit 针对某个 issue 或者 bug ，那么可以在 Footer 部分关闭。
+### 颜色
+|  样式值  | less变量                   | js变量                              |
+| --------- | ---------------------------- | ------------------------------------- |
+| `#006EFF` | `@primary-color`             | `designColor.color.primary`           |
+| `#2e90ff` | `@primary-hover-color`       | `designColor.color.primaryHover`      |
+| `#0054ad` | `@primary-active-color`      | `designColor.color.primaryActive`     |
+| `#bae1ff` | `@primary-disable-color`     | `designColor.color.primaryDisable`    |
+| `#e8f6ff` | `@primary-white-hover-color` | `designColor.color.primaryWhiteHover` |
+| `#20242e` | `@emphasis-color`            | `designColor.color.emphasis`          |
+| `#464f5c` | `@sub-emphasis-color`        | `designColor.color.subEmphasis`       |
+| `#78858f` | `@secondary-color`           | `designColor.color.secondary`         |
+| `#c2c6cc` | `@dim-color`                 | `designColor.color.dim`               |
+| `#e6e8eb` | `@white-color`               | `designColor.color.white`             |
+| `#c9ccd1` | `@gray-color`                | `designColor.color.gray`              |
+| `#f7f8fa` | `@light-gray-color`          | `designColor.color.lightGray`         |
+| `#eceef1` | `@white-gray-color`          | `designColor.color.whiteGray`         |
+| `#dfe1e6` | `@medium-gray-color`         | `designColor.color.mediumGray`        |
+| `#c2c6cc` | `@silver-grey-color`         | `designColor.color.silverGray`        |
+| `#464f5c` | `@dark-grey-color`           | `designColor.color.darkGray`          |
+| `#12b02c` | `@success-color`             | `designColor.color.success`           |
+| `#46cb6f` | `@success-hover-color`       | `designColor.color.successHover`      |
+| `#009d1f` | `@success-active-color`      | `designColor.color.successActive`     |
+| `#aff1b1` | `@success-disable-color`     | `designColor.color.successDisable`    |
+| `#e8fce8` | `@success-white-hover-color` | `designColor.color.successWhiteHover` |
+| `#ff8800` | `@warning-color`             | `designColor.color.warning`           |
+| `#ffa52e` | `@warning-hover-color`       | `designColor.color.warningHover`      |
+| `#e07000` | `@warning-active-color`      | `designColor.color.warningActive`     |
+| `#ffe8ba` | `@warning-disable-color`     | `designColor.color.warningDisable`    |
+| `#fff8e8` | `@warning-white-hover-color` | `designColor.color.warningWhiteHover` |
+| `#f54545` | `@error-color`               | `designColor.color.error`             |
+| `#f55953` | `@error-hover-color`         | `designColor.color.errorHover`        |
+| `#c1363b` | `@error-active-color`        | `designColor.color.errorActive`       |
+| `#fccdca` | `@error-disable-color`       | `designColor.color.errorDisable`      |
+| `#ffeded` | `@error-white-hover-color`   | `designColor.color.errorWhiteHover`   |
 
-```
-fix(wj-button): 修复 xxx不兼容问题
+### 字号
+| 样式值 | less变量            | js变量                          |
+| ------ | -------------------- | ------------------------------ |
+| `12px` | `@font-size-small`   | `designColor.fontSize.small`   |
+| `14px` | `@font-size-normal`  | `designColor.fontSize.normal`  |
+| `16px` | `@font-size-medium`  | `designColor.fontSize.medium`  |
+| `20px` | `@font-size-large`   | `designColor.fontSize.large`   |
 
-fix #123
-```
+### 字重
+| 样式值 | less变量                | js变量                             |
+| ------ | ----------------------- | --------------------------------- |
+| `400`  | `@font-weight-normal`   | `designColor.fontWeight.normal`   |
+| `500`  | `@font-weight-medium`   | `designColor.fontWeight.medium`   |
+| `600`  | `@font-weight-semibold` | `designColor.fontWeight.semibold` |
+
+### 间距
+| 样式值  | less变量      | js变量                    |
+| ------- | --------------| ------------------------ |
+| `4px`   | `@space-xs`   | `designColor.space.xs`   |
+| `8px`   | `@space-sm`   | `designColor.space.sm`   |
+| `16px`  | `@space-md`   | `designColor.space.md`   |
+| `24px`  | `@space-lg`   | `designColor.space.lg`   |
+
+### 圆角
+| 样式值  | less变量              | js变量                           |
+| ------- | ----------------------| ------------------------------- |
+| `2px`   | `@border-radius-sm`   | `designColor.borderRadius.sm`   |
+| `4px`   | `@border-radius-md`   | `designColor.borderRadius.md`   |
+| `8px`   | `@border-radius-lg`   | `designColor.borderRadius.lg`   |
+| `50%`   | `@border-radius-full` | `designColor.borderRadius.full` |

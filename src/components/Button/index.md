@@ -17,6 +17,7 @@ group: # 分组
 
 <!-- 可以通过code加载示例代码，dumi会帮我们做解析 -->
 
+
 <code src="./__demo__/base.tsx">基础用法</code>
 
 ## APi
@@ -24,5 +25,5 @@ group: # 分组
 <!-- 会生成api表格 -->
 
 | 属性 | 类型      | 默认值    | 必填     | 说明  |
-| ---- | --------- | --------- | -------- | ----- | -------- |
-| type | 'primary' | 'default' | 'default | false | 按钮类型 |
+| ---- | --------- | --------- | -------- | ----- |
+| type | `primary \| default` | `default` | `false` | 按钮类型 |
