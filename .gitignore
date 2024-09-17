@@ -3,5 +3,8 @@ node_modules
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
+
 .DS_Store
 /docs
+/coverage
+/yarn-error.log

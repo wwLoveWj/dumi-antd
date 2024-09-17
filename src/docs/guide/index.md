@@ -30,7 +30,6 @@ order: 2
 ├── .dumirc.ts         dumi配置文件
 ├── .editorconfig
 ├── .fatherrc.ts       fatherrc配置文件，组件库打包工具，默认使用 bundless 模式
-├── .gitattributes     git 配置文件，统一末尾换行符为 lf
 ├── .gitignore
 ├── .lintstagedrc.js   git hooks 提交只检查 staged 文件，不用全项目检查
 ├── .prettierrc.js
@@ -81,8 +80,8 @@ git push --set-upstream origin feature-2024.xx.xx:feature-2024.xx.xx
 ```
 └── components
   └── WjButton
-    ├── demo                  演示代码目录
-    │    └── basic.tsx             基础的组件演示代码
+    ├── __demo__                  演示代码目录
+    │    └── basic.tsx            基础的组件演示代码
     ├── components                如果组件较复杂，可以创建该目录存放子组件代码（可选）
     ├── button.tsx                组件代码
     ├── index.ts                  组件导出口，包含组件代码和 ts 类型

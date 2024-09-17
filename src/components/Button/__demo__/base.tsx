@@ -1,4 +1,4 @@
-// src/Button/demo/base.tsx
+// src/Button/__demo__/base.tsx
 
 import { Button } from 'dumi-umi-ww';
 import React from 'react';

@@ -17,7 +17,7 @@ group: # 分组
 
 <!-- 可以通过code加载示例代码，dumi会帮我们做解析 -->
 
-<code src="./demo/base.tsx">基础用法</code>
+<code src="./__demo__/base.tsx">基础用法</code>
 
 ## APi
 
