@@ -31,6 +31,11 @@ export default defineConfig({
     `.dumi-default-header-left {
       width: 220px !important;
    }`,
+    `.dumi-vite-doc-layout{
+      margin: 0 20px !important;}`,
+    `.dumi-vite-header-content{
+     margin: 0 20px !important;
+    }`,
   ],
   resolve: {
     docDirs: ['src/docs', './CHANGELOG.md'],

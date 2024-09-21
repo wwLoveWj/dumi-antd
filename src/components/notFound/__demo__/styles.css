@@ -1,0 +1,33 @@
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 330px;
+  border-radius: 15px;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.login .showImg {
+  flex: 1;
+  border-right: 1px solid pink;
+  height: inherit;
+  line-height: inherit;
+  text-transform: uppercase;
+  letter-spacing: 2;
+}
+.login .userInfo {
+  flex: 1.5;
+}
+.tvGif {
+  width: 11em;
+  height: 7.85em;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: 88;
+}
+.tvGif img {
+  height: 100%;
+}
