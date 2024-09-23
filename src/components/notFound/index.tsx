@@ -8,14 +8,17 @@ export default function NotFound({
 }: {
   /**
    * 屏幕界面的文字
+   * @default "NOT FOUND"
    */
   placeholder: string;
   /**
    * 打开登录
+   * @default () => {}
    */
   handleOpenLogin: () => void;
   /**
    * 屏幕内容
+   * @default <div>404</div>
    */
   screen: any;
 }) {

@@ -1,8 +1,10 @@
 import { defineConfig } from 'dumi';
 import path from 'path';
 
-const repo = 'dumi-antd';
+const repo =
+  process.env.NODE_ENV === 'production' ? 'dumi-antd' : 'dumi-umi-ww';
 export default defineConfig({
+  favicons: ['/favicon.ico'],
   title: repo,
   outputPath: 'docs',
   hash: true,
@@ -13,7 +15,8 @@ export default defineConfig({
   },
   themeConfig: {
     name: 'dumi-umi-ww',
-    logo: 'https://avatars.githubusercontent.com/u/10192406?s=200&v=4',
+    // logo: 'https://avatars.githubusercontent.com/u/10192406?s=200&v=4',
+    // logo: '/yyds.png',
     footer: 'MIT Licensed | Copyright © 2024-present dumi-umi-ww',
     nav: [
       { title: '介绍', link: '/guide' },

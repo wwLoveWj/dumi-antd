@@ -30,6 +30,8 @@ group: # 分组
 | handleOpenLogin | `any` |`-`| `false` | 页面按钮操作 |
 | screen | `any` |`-`| `false` | 屏幕显示的dom元素 |
 
+<!-- <API></API> -->
+
 ### 注意
 
 使用时需要用一个元素包裹，并且给该元素定义classname，必须加上样式
