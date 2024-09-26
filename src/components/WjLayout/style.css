@@ -1,0 +1,51 @@
+.navs ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+.navs li {
+  margin-right: 1em;
+}
+.allHeaderInfo {
+  display: flex;
+  align-items: center;
+  padding: 0 24px 0 12px;
+}
+.allHeaderInfo .settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.allHeaderInfo .settings .onlineInfo {
+  display: flex;
+  color: pink;
+}
+.allHeaderInfo .settings .onlineInfo span {
+  margin-left: 12px;
+}
+.settings-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  position: relative;
+}
+.logo {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo div {
+  color: #fff;
+  width: calc(100% - 24px);
+  height: 40px;
+  line-height: 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+}
+.ai:hover {
+  color: #1890ff !important;
+}

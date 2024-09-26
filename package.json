@@ -45,7 +45,10 @@
   },
   "dependencies": {
     "ahooks": "^3.8.1",
-    "qs": "^6.13.0"
+    "lodash-es": "^4.17.21",
+    "qs": "^6.13.0",
+    "react-activation": "^0.12.4",
+    "umi-plugin-keep-alive": "^0.0.1-beta.35"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

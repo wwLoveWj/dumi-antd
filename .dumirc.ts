@@ -49,4 +49,5 @@ export default defineConfig({
       { type: 'component', dir: 'src/utils' },
     ],
   },
+  plugins: ['umi-plugin-keep-alive'],
 });
