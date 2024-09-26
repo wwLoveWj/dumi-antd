@@ -43,31 +43,32 @@ export const getTagTitle = (path: string, routes: TagTypes[]) => {
 
 // 只有一位数字时添加“0”
 const checkTime = function (i: number) {
+  let resukt = '';
   if (i < 10) {
     if (i < 0) {
-      i = '00';
+      resukt = '00';
     } else {
-      i = '0' + i;
+      resukt = '0' + i;
     }
   }
 
-  return i;
+  return resukt;
 };
 //毫秒数转换成时间
 export const getCurrentTime = function () {
   let myDate = new Date();
   let year = myDate.getFullYear();
-  let month = myDate.getMonth() + 1;
-  let day = myDate.getDate();
-  let hour = myDate.getHours();
-  let minute = myDate.getMinutes();
-  let second = myDate.getSeconds();
+  let monthCur = myDate.getMonth() + 1;
+  let dayCur = myDate.getDate();
+  let hourCur = myDate.getHours();
+  let minuteCur = myDate.getMinutes();
+  let secondCur = myDate.getSeconds();
 
-  month = checkTime(month).toString();
-  day = checkTime(day).toString();
-  hour = checkTime(hour).toString();
-  minute = checkTime(minute).toString();
-  second = checkTime(second).toString();
+  let month = checkTime(monthCur).toString();
+  let day = checkTime(dayCur).toString();
+  let hour = checkTime(hourCur).toString();
+  let minute = checkTime(minuteCur).toString();
+  let second = checkTime(secondCur).toString();
 
   return (
     year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second
