@@ -36,7 +36,7 @@ export default function NotFound({
         <div className="tv">
           <div className="cruve">
             <img
-              src={require('@/assets/imgs/tv.svg')}
+              src={require('../../assets/imgs/tv.svg')}
               alt=""
               className="curve_svg"
             />

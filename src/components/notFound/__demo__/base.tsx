@@ -21,7 +21,7 @@ const Index = () => {
     let screenDom1 = () => {
       return (
         <div className={'tvGif'}>
-          <img src={require('@/assets/imgs/tv.gif')} alt="" />
+          <img src={require('../../../assets/imgs/tv.gif')} alt="" />
         </div>
       );
     };
