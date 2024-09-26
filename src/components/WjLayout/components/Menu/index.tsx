@@ -13,7 +13,13 @@ function SideBarRender({
   menus,
   theme,
 }: {
+  /**
+   * 菜单路由配置
+   */
   menus: TagTypes[];
+  /**
+   * 主题颜色
+   */
   theme: MenuType;
 }) {
   const [saveKeyPath, setSaveKeyPath] = useState<string[]>([]); //存储选中的菜单路径集合
@@ -28,7 +34,7 @@ function SideBarRender({
    * @param menuArr 所有的路由配置
    * @returns
    */
-  function getMenuItem(menuArr: any) {
+  function getMenuItem(menuArr: TagTypes[]) {
     // 获取菜单项
     return _.map(menuArr, (route: TagTypes) => {
       if (route.routes) {
@@ -58,15 +64,24 @@ function SideBarRender({
       );
     });
   }
+  /**
+   *
+   * @param openKeys 打开的菜单
+   */
   const onOpenChange: MenuProps['onOpenChange'] = (openKeys: string[]) => {
     let keys = openKeys.slice(openKeys.length - 1);
     setStateOpenKeys(keys);
   };
+  /**
+   *
+   * @param keyPath 选中的菜单
+   */
   const onSelectMenu = ({ keyPath }: { keyPath: string[] }) => {
     setSaveKeyPath(keyPath);
   };
 
   useEffect(() => {
+    //  处理url地址栏直接输入pathname，然后能够选中菜单
     const keys = pathname
       .split('/')
       ?.filter(Boolean)

@@ -14,7 +14,7 @@ const { confirm } = Modal;
 
 const PageTabs = ({
   routes,
-  home = '/home',
+  home = '/',
 }: {
   routes: TagTypes[];
   home: string;
@@ -28,11 +28,6 @@ const PageTabs = ({
       label: '首页',
       key: home,
       closable: false,
-    },
-    {
-      key: '/start',
-      label: '快速上手',
-      path: '/start',
     },
   ]);
   //   const { title } = useRouteProps();
@@ -95,7 +90,7 @@ const PageTabs = ({
   // 路由变化设置选择项
   const initSetTabs = (path: string) => {
     const pathList: string[] = [];
-    tabList?.map((item: TabTypes) => {
+    tabList?.forEach((item: TabTypes) => {
       pathList.push(item.key);
     });
     // 判断当前路由是否在页签里，不在就加入页签

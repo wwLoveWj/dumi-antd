@@ -33,9 +33,14 @@ const { Header, Content, Sider } = Layout;
 export type MenuType = 'light' | 'dark';
 interface Iprops {
   /**
+   * 是否隐藏头部布局，只显示面包屑简易模式
+   * @default false
+   */
+  isShowHeader?: boolean;
+  /**
    * 头像处的下拉设置菜单
    */
-  avatarItems: MenuProps['items'];
+  avatarItems?: MenuProps['items'];
   /**
    * 项目名
    * @default "项目模板"
@@ -51,12 +56,18 @@ interface Iprops {
    * @default "/home"
    */
   home: string;
+  /**
+   * 未读消息数量
+   */
+  unreadMsgcount?: number;
 }
 const Index: React.FC<Iprops> = ({
   avatarItems,
   routes,
   projectName,
   home,
+  isShowHeader,
+  unreadMsgcount,
   // children,
 }) => {
   const countDownTimer = useRef<any>(null); // 倒计时标记
@@ -136,6 +147,27 @@ const Index: React.FC<Iprops> = ({
     };
   }, []);
 
+  // 头部设置
+  const Setting = ({ style = {} }: { style?: object }) => {
+    return (
+      <>
+        <div style={style}>{timeView}</div>
+        {/* 个人设置 */}
+        <Dropdown menu={{ items: avatarItems }} placement="bottomRight" arrow>
+          <Badge count={unreadMsgcount}>
+            <Avatar
+              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+              style={{
+                backgroundColor: '#f56a00',
+                marginLeft: '12px',
+                cursor: 'pointer',
+              }}
+            />
+          </Badge>
+        </Dropdown>
+      </>
+    );
+  };
   return (
     <Layout>
       <Layout>
@@ -154,86 +186,59 @@ const Index: React.FC<Iprops> = ({
         </Sider>
         {/* 右侧内容区 */}
         <Layout style={{ background: '#f0f3f4' }}>
-          <Header
-            style={{
-              background: themeColor,
-              display: 'none',
-            }}
-            className="allHeaderInfo"
-          >
-            <div className="settings">
-              {/* 是否收起菜单 */}
-              <Button
-                type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => setCollapsed(!collapsed)}
-                style={{
-                  fontSize: '20px',
-                  width: 20,
-                  height: 64,
-                  color: '#fff',
-                }}
-              />
-              <div className="onlineInfo">
-                <span>网络状态：{connectInfo.effectiveType}</span>
-                <span>延迟：{connectInfo.rtt}ms</span>
-                <span>带宽：{connectInfo.downlink} Mb/s</span>
+          {isShowHeader && (
+            <Header
+              style={{
+                background: themeColor,
+                // display: 'none',
+              }}
+              className="allHeaderInfo"
+            >
+              <div className="settings">
+                {/* 是否收起菜单 */}
+                <Button
+                  type="text"
+                  icon={
+                    collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />
+                  }
+                  onClick={() => setCollapsed(!collapsed)}
+                  style={{
+                    fontSize: '20px',
+                    width: 20,
+                    height: 64,
+                    color: '#fff',
+                  }}
+                />
+                <div className="onlineInfo">
+                  <span>网络状态：{connectInfo.effectiveType}</span>
+                  <span>延迟：{connectInfo.rtt}ms</span>
+                  <span>带宽：{connectInfo.downlink} Mb/s</span>
+                </div>
+                <Setting style={{ color: '#fff' }} />
               </div>
-              <div style={{ color: '#fff' }}>{timeView}</div>
-              {/* 个人设置 */}
-              <Dropdown
-                menu={{ items: avatarItems }}
-                placement="bottomRight"
-                arrow
-              >
-                <Badge count={1}>
-                  <Avatar
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
-                    style={{
-                      backgroundColor: '#f56a00',
-                      marginLeft: '12px',
-                      cursor: 'pointer',
-                    }}
-                  />
-                </Badge>
-              </Dropdown>
-            </div>
-          </Header>
+            </Header>
+          )}
           <div className="settings-right">
             <Breadcrumb
               style={{ padding: '6px 12px', background: '#fff' }}
               items={breadcrumbItems}
             />
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                position: 'absolute',
-                right: '18px',
-                top: '18px',
-              }}
-            >
-              <div>{timeView}</div>
-              <Dropdown
-                menu={{ items: avatarItems }}
-                placement="bottomRight"
-                arrow
+            {!isShowHeader && (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  position: 'absolute',
+                  right: '18px',
+                  top: '18px',
+                }}
               >
-                <Badge count={1}>
-                  <Avatar
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
-                    style={{
-                      backgroundColor: '#f56a00',
-                      marginLeft: '12px',
-                      cursor: 'pointer',
-                    }}
-                  />
-                </Badge>
-              </Dropdown>
-            </div>
+                <Setting />
+              </div>
+            )}
           </div>
           {/* 打开的路由页签 */}
-          <WjBreadcrumb routes={routes} home={home} />
+          {!isShowHeader && <WjBreadcrumb routes={routes} home={home} />}
           <Layout style={{ padding: 12 }}>
             <Content
               style={{
