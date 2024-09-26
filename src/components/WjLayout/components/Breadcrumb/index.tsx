@@ -1,9 +1,9 @@
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Modal, Tabs } from 'antd';
-import { history, useLocation } from 'dumi';
 import { getTagTitle, TagTypes } from 'dumi-umi-ww';
 import React, { useEffect, useState } from 'react';
 import { useAliveController } from 'react-activation';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { pathTxt } from './constant';
 import { useLayoutContext } from './LayoutProvider';
 import './style.less';
@@ -22,6 +22,7 @@ const PageTabs = ({
   const { globalEditPages } = useLayoutContext();
   const { dropScope } = useAliveController();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [activeKey, setActiveKey] = useState<string>(home);
   const [tabList, setTabList] = useState<any[]>([
     {
@@ -57,7 +58,7 @@ const PageTabs = ({
     setActiveKey(newActiveKey);
     // 关闭页签清除keepalive缓存
     dropScope(targetKey);
-    history.push(newActiveKey);
+    navigate(newActiveKey);
   };
 
   // 点击关闭tab标签
@@ -84,7 +85,7 @@ const PageTabs = ({
 
   // 点击tab切换路由
   const onChange = (newActiveKey: string) => {
-    history.push(newActiveKey);
+    navigate(newActiveKey);
   };
 
   // 路由变化设置选择项

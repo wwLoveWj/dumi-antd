@@ -1,9 +1,9 @@
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { Link, useLocation } from 'dumi';
 import type { TagTypes } from 'dumi-umi-ww';
 import _ from 'lodash-es';
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export type MenuType = 'light' | 'dark';
 const { SubMenu } = Menu; // 子菜单

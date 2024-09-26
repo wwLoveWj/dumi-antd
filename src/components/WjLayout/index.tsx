@@ -15,7 +15,6 @@ import {
   Layout,
   theme,
 } from 'antd';
-import { KeepAlive, Outlet, useLocation, useRouteProps } from 'dumi';
 import {
   getAllNodes,
   getCurrentTime,
@@ -23,6 +22,7 @@ import {
   TagTypes,
 } from 'dumi-umi-ww';
 import React, { useEffect, useRef, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 // import { KeepAlive } from 'umi-plugin-keep-alive';
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
 import WjBreadcrumb from './components/Breadcrumb';
@@ -81,7 +81,7 @@ const Index: React.FC<Iprops> = ({
   const [themeColor] = useState('#001629'); //切换headers主题
 
   const [collapsed, setCollapsed] = useState(false); //菜单收起展开
-  const { path, title, id } = useRouteProps();
+  // const { path, title, id } = useRoutes();
   const { pathname } = useLocation();
   const [breadcrumbItems, setBreadcrumbItems] = useState<
     { title: any; path: string; className?: string }[]
@@ -253,10 +253,10 @@ const Index: React.FC<Iprops> = ({
                 overflow: 'auto',
               }}
             >
-              <KeepAlive id={id} name={path} tabName={title}>
-                <Outlet />
-                {/* {children} */}
-              </KeepAlive>
+              {/* <KeepAlive id={id} name={path} tabName={title}> */}
+              <Outlet />
+              {/* {children} */}
+              {/* </KeepAlive> */}
             </Content>
           </Layout>
         </Layout>
