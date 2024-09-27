@@ -16,6 +16,14 @@ toc: content
 # 更新日志
 
 
+### [0.0.2](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.5...v0.0.2) (2024-09-27)
+
+
+### Features
+
+* 更改包名为magical-antd-ui ([b5c750f](https://github.com/wwLoveWj/dumi-antd/commit/b5c750f6965d5194938f95039d2ddcbf137598e1))
+* **chg-name:** 更改组件库名字 ([6bc8862](https://github.com/wwLoveWj/dumi-antd/commit/6bc8862b85f31d6f5877762e622ecd146eb103a9))
+
 ### [0.0.5](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.4...v0.0.5) (2024-09-27)
 
 ### [0.0.4](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.3...v0.0.4) (2024-09-27)

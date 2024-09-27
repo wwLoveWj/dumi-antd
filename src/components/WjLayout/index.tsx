@@ -21,7 +21,7 @@ import {
   getTagTitle,
   TagTypes,
 } from 'magical-antd-ui';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 // import { KeepAlive } from 'umi-plugin-keep-alive';
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -70,6 +70,7 @@ const Index: React.FC<Iprops> = ({
   unreadMsgcount,
   // children,
 }) => {
+  console.log('我被渲染了吗？');
   // 获取到所有的菜单数据进行处理
   const routes =
     menus
@@ -154,7 +155,8 @@ const Index: React.FC<Iprops> = ({
   }, []);
 
   // 头部设置
-  const Setting = ({ style = {} }: { style?: object }) => {
+  const Setting = memo(({ style = {} }: { style?: object }) => {
+    console.log('干啥呢？我又被渲染了~');
     return (
       <>
         <div style={style}>{timeView}</div>
@@ -173,7 +175,7 @@ const Index: React.FC<Iprops> = ({
         </Dropdown>
       </>
     );
-  };
+  });
   return (
     <Layout>
       <Layout>
