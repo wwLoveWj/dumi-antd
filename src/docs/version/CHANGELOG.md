@@ -16,6 +16,8 @@ toc: content
 # 更新日志
 
 
+### [0.0.4](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.3...v0.0.4) (2024-09-27)
+
 ### 0.0.3 (2024-09-27)
 
 

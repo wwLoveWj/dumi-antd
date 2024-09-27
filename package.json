@@ -1,6 +1,6 @@
 {
   "name": "magical-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "一款基于 react18 + antd5 封装的神奇组件",
   "license": "MIT",
   "main": "lib/esm/index",
