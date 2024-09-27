@@ -1,3 +1,3 @@
 // 通知发布notify
-import { createNotification } from 'magical-components';
+const { createNotification } = require('magical-components');
 createNotification('发布成功~');
