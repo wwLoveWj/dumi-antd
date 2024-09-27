@@ -63,13 +63,19 @@ interface Iprops {
 }
 const Index: React.FC<Iprops> = ({
   avatarItems,
-  routes,
+  routes: menus,
   projectName,
   home,
   isShowHeader,
   unreadMsgcount,
   // children,
 }) => {
+  // 获取到所有的菜单数据进行处理
+  const routes =
+    menus
+      ?.find((route) => route.path === '/')
+      ?.routes?.filter((item: any) => !item.redirect) || [];
+
   const countDownTimer = useRef<any>(null); // 倒计时标记
   const [timeView, setTimeView] = useState<any>(null); // 倒计时显示
   const connectInfo = (window.navigator as any).connection; //网络信息
