@@ -1,5 +1,5 @@
 ---
-category: Components
+category: Utils
 title: 时间格式化 # 组件的标题，会在菜单侧边栏展示
 toc: content # 在页面右侧展示锚点链接
 group: # 分组
