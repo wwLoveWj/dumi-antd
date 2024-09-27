@@ -1,7 +1,7 @@
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import type { TagTypes } from 'dumi-umi-ww';
 import _ from 'lodash-es';
+import type { TagTypes } from 'magical-components';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 

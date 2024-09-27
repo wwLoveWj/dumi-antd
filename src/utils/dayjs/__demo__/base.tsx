@@ -1,5 +1,5 @@
 //
-import { formatTime } from 'dumi-umi-ww';
+import { formatTime } from 'magical-components';
 import React, { useEffect, useState } from 'react';
 
 const App: React.FC = () => {

@@ -2,22 +2,22 @@ import { defineConfig } from 'dumi';
 import path from 'path';
 
 const repo =
-  process.env.NODE_ENV === 'production' ? 'dumi-antd' : 'dumi-umi-ww';
+  process.env.NODE_ENV === 'production' ? 'dumi-antd' : 'magical-components';
 export default defineConfig({
   favicons: ['/favicon.ico'],
   title: repo,
   outputPath: 'docs',
   hash: true,
   alias: {
-    '@dumi-umi-ww': path?.join(__dirname, 'src'),
-    '@dumi-umi-ww/hooks': path?.join(__dirname, 'src/hooks'),
-    '@dumi-umi-ww/utils': path?.join(__dirname, 'src/utils'),
+    '@magical-components': path?.join(__dirname, 'src'),
+    '@magical-components/hooks': path?.join(__dirname, 'src/hooks'),
+    '@magical-components/utils': path?.join(__dirname, 'src/utils'),
   },
   themeConfig: {
-    name: 'dumi-umi-ww',
+    name: 'magical-components',
     // logo: 'https://avatars.githubusercontent.com/u/10192406?s=200&v=4',
     // logo: '/yyds.png',
-    footer: 'MIT Licensed | Copyright © 2024-present dumi-umi-ww',
+    footer: 'MIT Licensed | Copyright © 2024-present magical-components',
     nav: [
       { title: '介绍', link: '/guide' },
       { title: '设计', link: '/design' },

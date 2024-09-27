@@ -1,6 +1,6 @@
 // src/Button/__demo__/base.tsx
 
-import { Button } from 'dumi-umi-ww';
+import { Button } from 'magical-components';
 import React from 'react';
 
 export default () => {

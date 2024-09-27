@@ -1,5 +1,15 @@
 import { ComponentClass, FunctionComponent } from 'react';
 
+/**
+ * 菜单的配置项，用于动态渲染：
+ *  key: 唯一标志
+ *  title: 菜单项值（国际化已开启）
+ *  path：用于路由跳转
+ *  component：组件所在路径，从pages路径下开始
+ *  icon：菜单图标
+ *  hidden: 是否隐藏该菜单项
+ *  routes：子级菜单项
+ */
 export interface TagTypes {
   title?: string;
   key?: string;

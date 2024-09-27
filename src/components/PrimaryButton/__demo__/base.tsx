@@ -1,6 +1,6 @@
 // src/Button/__demo__/base.tsx
 
-import { PrimaryButton } from 'dumi-umi-ww';
+import { PrimaryButton } from 'magical-components';
 import React from 'react';
 
 export default () => {

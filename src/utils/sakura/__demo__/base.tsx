@@ -1,4 +1,4 @@
-import { startSakura } from 'dumi-umi-ww';
+import { startSakura } from 'magical-components';
 import React, { useEffect } from 'react';
 const App: React.FC = () => {
   useEffect(() => {

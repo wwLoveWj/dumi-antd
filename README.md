@@ -1,7 +1,6 @@
-# dumi-umi-ww
+# magical-components
 
-[![NPM version](https://img.shields.io/npm/v/dumi-umi-ww.svg?style=flat)](https://npmjs.org/package/dumi-umi-ww)
-[![NPM downloads](http://img.shields.io/npm/dm/dumi-umi-ww.svg?style=flat)](https://npmjs.org/package/dumi-umi-ww)
+[![NPM version](https://img.shields.io/npm/v/magical-components.svg?style=flat)](https://npmjs.org/package/magical-components) [![NPM downloads](http://img.shields.io/npm/dm/magical-components.svg?style=flat)](https://npmjs.org/package/magical-components)
 
 A react library developed with dumi
 

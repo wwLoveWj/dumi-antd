@@ -1,4 +1,4 @@
-import { WjLayout } from 'dumi-umi-ww';
+import { WjLayout } from 'magical-components';
 import React from 'react';
 export default function Index() {
   return (

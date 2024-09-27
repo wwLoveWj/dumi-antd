@@ -18,8 +18,8 @@ export default defineConfig({
     ],
   },
   alias: {
-    '@dumi-umi-ww': './src',
-    '@dumi-umi-ww/hooks': path?.join(__dirname, './src/hooks'),
-    '@dumi-umi-ww/utils': path?.join(__dirname, './src/utils'),
+    '@magical-components': './src',
+    '@magical-components/hooks': path?.join(__dirname, './src/hooks'),
+    '@magical-components/utils': path?.join(__dirname, './src/utils'),
   },
 });

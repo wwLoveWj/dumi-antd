@@ -1,4 +1,4 @@
-import { NotFound } from 'dumi-umi-ww';
+import { NotFound } from 'magical-components';
 import React, { useState } from 'react';
 import './styles.less';
 

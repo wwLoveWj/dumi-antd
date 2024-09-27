@@ -20,7 +20,7 @@ import {
   getCurrentTime,
   getTagTitle,
   TagTypes,
-} from 'dumi-umi-ww';
+} from 'magical-components';
 import React, { useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 // import { KeepAlive } from 'umi-plugin-keep-alive';
