@@ -1,4 +1,4 @@
-import { WjLayout } from 'magical-components';
+import { WjLayout } from '@wj/magical-components';
 import React from 'react';
 export default function Index() {
   return (

@@ -1,4 +1,4 @@
-import { NotFound } from 'magical-components';
+import { NotFound } from '@wj/magical-components';
 import React, { useState } from 'react';
 import './styles.less';
 

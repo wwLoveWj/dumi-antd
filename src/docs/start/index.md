@@ -15,7 +15,7 @@ Antd-Wj 是基于 Ant Design 而封装的一些业务模板组件，根据工作
 
 ## npm 镜像仓库
 
-`magical-components` 发布到了公有的 npm 上，访问不了的需要先设置 npm 的私有镜像
+`@wj/magical-components` 发布到了公有的 npm 上，访问不了的需要先设置 npm 的私有镜像
 
 ```shell
 npm config set registry https://registry.npmjs.com/
@@ -35,12 +35,12 @@ yarn config set registry https://registry.npmjs.com/
 
 ## 安装
 
-`magical-components@25.x` 是基于 `antd@4.x` 开发的，目前还不支持 `antd@5.x`
+`@wj/magical-components@25.x` 是基于 `antd@4.x` 开发的，目前还不支持 `antd@5.x`
 
 ```shell
-npm install magical-components
+npm install @wj/magical-components
 # or
-yarn add magical-components
+yarn add @wj/magical-components
 ```
 
 ## 配置
@@ -65,7 +65,7 @@ import './global.less';
 ## 在项目中使用
 
 ```tsx
-import { Button } from 'magical-components';
+import { Button } from '@wj/magical-components';
 
 export default () => {
   return <Button type="default">默认按钮</Button>;

@@ -18,8 +18,8 @@ export default defineConfig({
     ],
   },
   alias: {
-    '@magical-components': './src',
-    '@magical-components/hooks': path?.join(__dirname, './src/hooks'),
-    '@magical-components/utils': path?.join(__dirname, './src/utils'),
+    '@wj/magical-components': './src',
+    '@wj/magical-components/hooks': path?.join(__dirname, './src/hooks'),
+    '@wj/magical-components/utils': path?.join(__dirname, './src/utils'),
   },
 });

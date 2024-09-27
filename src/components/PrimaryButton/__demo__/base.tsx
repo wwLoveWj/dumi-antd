@@ -1,6 +1,6 @@
 // src/Button/__demo__/base.tsx
 
-import { PrimaryButton } from 'magical-components';
+import { PrimaryButton } from '@wj/magical-components';
 import React from 'react';
 
 export default () => {

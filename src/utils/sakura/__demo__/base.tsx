@@ -1,4 +1,4 @@
-import { startSakura } from 'magical-components';
+import { startSakura } from '@wj/magical-components';
 import React, { useEffect } from 'react';
 const App: React.FC = () => {
   useEffect(() => {

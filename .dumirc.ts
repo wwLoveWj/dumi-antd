@@ -9,15 +9,15 @@ export default defineConfig({
   outputPath: 'docs',
   hash: true,
   alias: {
-    '@magical-components': path?.join(__dirname, 'src'),
-    '@magical-components/hooks': path?.join(__dirname, 'src/hooks'),
-    '@magical-components/utils': path?.join(__dirname, 'src/utils'),
+    '@wj/magical-components': path?.join(__dirname, 'src'),
+    '@wj/magical-components/hooks': path?.join(__dirname, 'src/hooks'),
+    '@wj/magical-components/utils': path?.join(__dirname, 'src/utils'),
   },
   themeConfig: {
-    name: 'magical-components',
+    name: '@wj/magical-components',
     // logo: 'https://avatars.githubusercontent.com/u/10192406?s=200&v=4',
     // logo: '/yyds.png',
-    footer: 'MIT Licensed | Copyright © 2024-present magical-components',
+    footer: 'MIT Licensed | Copyright © 2024-present @wj/magical-components',
     nav: [
       { title: '介绍', link: '/guide' },
       { title: '设计', link: '/design' },
