@@ -1,7 +1,7 @@
 {
   "name": "magical-components",
   "version": "0.0.2",
-  "description": "A react library developed with dumi",
+  "description": "一款基于 react18 + antd5 封装的神奇组件",
   "license": "MIT",
   "main": "lib/esm/index",
   "module": "lib/esm/index.js",
@@ -13,6 +13,7 @@
   "scripts": {
     "build": "father build",
     "build:watch": "father dev",
+    "commit": "cz",
     "dev": "dumi dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
@@ -20,10 +21,18 @@
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "notice": "node ./scripts/notice.js",
     "prepare": "husky install && dumi setup",
+    "release": "standard-version -a -n -i src/docs/version/CHANGELOG.md && npm publish && npm run notice",
     "start": "npm run dev",
     "test:all": "jest --coverage --bail",
     "test:staged": "node jest.staged.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run build",
+      "commit-msg": "commitlint -e"
+    }
   },
   "commitlint": {
     "extends": [
@@ -44,12 +53,18 @@
       "npm run test:staged"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "dependencies": {
     "ahooks": "^3.8.1",
     "antd": "^5.20.6",
     "lodash-es": "^4.17.21",
     "qs": "^6.13.0",
     "react-activation": "^0.12.4",
+    "react-schema-render": "^0.0.5",
     "umi-plugin-keep-alive": "^0.0.1-beta.35"
   },
   "devDependencies": {
@@ -62,6 +77,8 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@umijs/lint": "^4.0.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "dumi": "^2.3.0",
     "dumi-theme-vite": "^0.2.7",
     "eslint": "^8.23.0",
@@ -78,6 +95,7 @@
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.26.2",
+    "standard-version": "^9.5.0",
     "stylelint": "^14.9.1",
     "ts-jest": "^29.2.5",
     "typescript": "4"
