@@ -1,5 +1,5 @@
-import { createNotification } from '@wj/magical-components';
 import { Button } from 'antd';
+import { createNotification } from 'magical-antd-ui';
 import React from 'react';
 export default function Base() {
   //   useEffect(() => {

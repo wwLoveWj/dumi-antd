@@ -1,7 +1,7 @@
-import type { TagTypes } from '@wj/magical-components';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import _ from 'lodash-es';
+import type { TagTypes } from 'magical-antd-ui';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 

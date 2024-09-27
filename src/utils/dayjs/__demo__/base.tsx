@@ -1,5 +1,5 @@
 //
-import { formatTime } from '@wj/magical-components';
+import { formatTime } from 'magical-antd-ui';
 import React, { useEffect, useState } from 'react';
 
 const App: React.FC = () => {

@@ -1,6 +1,6 @@
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import { getTagTitle, TagTypes } from '@wj/magical-components';
 import { Modal, Tabs } from 'antd';
+import { getTagTitle, TagTypes } from 'magical-antd-ui';
 import React, { useEffect, useState } from 'react';
 import { useAliveController } from 'react-activation';
 import { useLocation, useNavigate } from 'react-router-dom';

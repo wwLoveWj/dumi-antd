@@ -1,4 +1,4 @@
-import { startSakura } from '@wj/magical-components';
+import { startSakura } from 'magical-antd-ui';
 import React, { useEffect } from 'react';
 const App: React.FC = () => {
   useEffect(() => {

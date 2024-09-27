@@ -1,6 +1,6 @@
-# @wj/magical-components
+# magical-antd-ui
 
-[![NPM version](https://img.shields.io/npm/v/@wj/magical-components.svg?style=flat)](https://npmjs.org/package/@wj/magical-components) [![NPM downloads](http://img.shields.io/npm/dm/@wj/magical-components.svg?style=flat)](https://npmjs.org/package/@wj/magical-components)
+[![NPM version](https://img.shields.io/npm/v/magical-antd-ui.svg?style=flat)](https://npmjs.org/package/magical-antd-ui) [![NPM downloads](http://img.shields.io/npm/dm/magical-antd-ui.svg?style=flat)](https://npmjs.org/package/magical-antd-ui)
 
 A react library developed with dumi
 

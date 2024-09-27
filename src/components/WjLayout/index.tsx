@@ -5,12 +5,6 @@ import {
   MenuUnfoldOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import {
-  getAllNodes,
-  getCurrentTime,
-  getTagTitle,
-  TagTypes,
-} from '@wj/magical-components';
 import type { MenuProps } from 'antd';
 import {
   Avatar,
@@ -21,6 +15,12 @@ import {
   Layout,
   theme,
 } from 'antd';
+import {
+  getAllNodes,
+  getCurrentTime,
+  getTagTitle,
+  TagTypes,
+} from 'magical-antd-ui';
 import React, { useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 // import { KeepAlive } from 'umi-plugin-keep-alive';

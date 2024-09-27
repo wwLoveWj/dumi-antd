@@ -18,7 +18,7 @@ order: 0
 
 ```typescript
 // 注意：需要从 cjs 中导入 modifyVars 对象
-import modifyVars from '@wj/magical-components/dist/design/modifyVars';
+import modifyVars from 'magical-antd-ui/dist/design/modifyVars';
 import { defineConfig } from 'umi';
 
 const config = defineConfig({
@@ -37,7 +37,7 @@ export default config;
 在项目的 `less`文件中导入公共的 `less`变量定义文件，例如：
 
 ```less
-@import '@wj/magical-components/dist/design/global/index.less';
+@import 'magical-antd-ui/dist/design/global/index.less';
 
 .lessVars {
   width: 200px;
@@ -56,7 +56,7 @@ export default config;
 在项目的 `jsx/tsx`文件中可以通过 `designColor`对象来使用公共的样式变量，例如：
 
 ```typescript
-import { designColor } from '@wj/magical-components';
+import { designColor } from 'magical-antd-ui';
 
 export const App = () => {
     return (
