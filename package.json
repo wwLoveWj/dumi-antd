@@ -13,7 +13,7 @@
   "scripts": {
     "build": "father build",
     "build:watch": "father dev",
-    "commit": "cz",
+    "commit": "cz && npm run notice",
     "dev": "dumi dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
