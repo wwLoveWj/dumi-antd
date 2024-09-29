@@ -5,7 +5,7 @@ export default function Index() {
     <div>
       <WjLayout
         projectName="667ww"
-        home="/"
+        isRawData={true}
         routes={[
           {
             path: '/',

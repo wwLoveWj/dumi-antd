@@ -53,29 +53,39 @@ interface Iprops {
   routes: TagTypes[];
   /**
    * 路由首页路径
-   * @default "/home"
+   * @default "/"
    */
-  home: string;
+  home?: string;
   /**
    * 未读消息数量
    */
   unreadMsgcount?: number;
+  children?: any;
+  /**
+   * 是否直接传入原始路由数据
+   * true 为原始，内部直接处理
+   * false 为路由配置，需外部处理成目标路由配置后传入
+   * @default false
+   */
+  isRawData?: boolean;
 }
 const Index: React.FC<Iprops> = ({
   avatarItems,
   routes: menus,
   projectName,
-  home,
+  home = '/',
   isShowHeader,
   unreadMsgcount,
-  // children,
+  children,
+  isRawData = false,
 }) => {
   console.log('我被渲染了吗？');
   // 获取到所有的菜单数据进行处理
-  const routes =
-    menus
-      ?.find((route) => route.path === '/')
-      ?.routes?.filter((item: any) => !item.redirect) || [];
+  const routes = !isRawData
+    ? menus
+    : menus
+        ?.find((route) => route.path === '/')
+        ?.routes?.filter((item: any) => !item.redirect) || [];
 
   const countDownTimer = useRef<any>(null); // 倒计时标记
   const [timeView] = useState<any>(null); // 倒计时显示
@@ -264,8 +274,7 @@ const Index: React.FC<Iprops> = ({
               }}
             >
               {/* <KeepAlive id={id} name={path} tabName={title}> */}
-              <Outlet />
-              {/* {children} */}
+              {children ? children : <Outlet />}
               {/* </KeepAlive> */}
             </Content>
           </Layout>

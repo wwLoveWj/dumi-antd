@@ -1,9 +1,9 @@
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Modal, Tabs } from 'antd';
-import { getTagTitle, TagTypes } from 'magical-antd-ui';
+import { getTagTitle, TagTypes, useHistoryToPath } from 'magical-antd-ui';
 import React, { useEffect, useState } from 'react';
 import { useAliveController } from 'react-activation';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { pathTxt } from './constant';
 import { useLayoutContext } from './LayoutProvider';
 import './style.less';
@@ -22,7 +22,9 @@ const PageTabs = ({
   const { globalEditPages } = useLayoutContext();
   const { dropScope } = useAliveController();
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  // 兼容v5、v6的history跳转
+  const { routeChgLink } = useHistoryToPath();
   const [activeKey, setActiveKey] = useState<string>(home);
   const [tabList, setTabList] = useState<any[]>([
     {
@@ -58,7 +60,7 @@ const PageTabs = ({
     setActiveKey(newActiveKey);
     // 关闭页签清除keepalive缓存
     dropScope(targetKey);
-    navigate(newActiveKey);
+    routeChgLink(newActiveKey);
   };
 
   // 点击关闭tab标签
@@ -85,7 +87,7 @@ const PageTabs = ({
 
   // 点击tab切换路由
   const onChange = (newActiveKey: string) => {
-    navigate(newActiveKey);
+    routeChgLink(newActiveKey);
   };
 
   // 路由变化设置选择项
