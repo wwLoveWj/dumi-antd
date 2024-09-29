@@ -24,6 +24,23 @@ export default function Index() {
                 path: '/components/wj-layout',
                 // icon: SendOutlined,
                 component: '@/pages/docs/components',
+                routes: [
+                  {
+                    key: 'start1',
+                    title: '开始',
+                    path: '/components/wj-layout/start1',
+                    routes: [
+                      {
+                        key: 'start2',
+                        title: '开始',
+                        hidden: true,
+                        path: '/components/wj-layout/start1/start2',
+                      },
+                    ],
+                    // icon: OpenAIOutlined,
+                    component: '@/pages/docs/start',
+                  },
+                ],
               },
               {
                 key: 'start',

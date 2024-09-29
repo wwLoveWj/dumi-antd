@@ -1,7 +1,7 @@
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import _ from 'lodash-es';
-import type { TagTypes } from 'magical-antd-ui';
+import { isChildPage, TagTypes } from 'magical-antd-ui';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -38,6 +38,16 @@ function SideBarRender({
     // 获取菜单项
     return _.map(menuArr, (route: TagTypes) => {
       if (route.routes) {
+        if (!isChildPage(route?.routes)) {
+          return (
+            <Menu.Item
+              key={route.path}
+              icon={route.icon && React.createElement(route.icon)}
+            >
+              <Link to={route.path || '/'}>{route.title}</Link>
+            </Menu.Item>
+          );
+        }
         // 有多级菜单时
         return (
           !route.hidden && (

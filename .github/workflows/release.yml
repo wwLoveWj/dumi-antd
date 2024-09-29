@@ -1,15 +1,10 @@
 # 工作流名称，可以根据你的需求进行命名
 name: CI
-# server:
-#   host: "github.com"
-#   username: "wwLoveWj"
-#   password: "Wj961203"
-#   remote_path: "https://github.com/wwLoveWj/ww-tree.git" # 目标路径
 # 这个部分定义了触发工作流程的事件，即在什么情况下工作流程会被触发。在这里，工作流会在master分支有push事件时被触发。
 on:
   push:
     branches:
-      - devlop-master
+      - main
 # 这是工作流程的主要部分，包含了一个或多个工作（jobs），每个工作都是一系列步骤的组合。
 jobs:
   build:
@@ -19,7 +14,7 @@ jobs:
     # 一定要注意！这里一定要是自己项目所使用的node版本，否则在自动打包时会出错。
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     # 这是工作的实际步骤。
     steps:
       # 步骤1 这是步骤的名称，表示将检出（克隆）代码库。

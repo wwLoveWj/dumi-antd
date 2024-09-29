@@ -53,4 +53,24 @@ export const getTagTitle = (path: string, routes: TagTypes[]) => {
   return newTitle;
 };
 
-
+/**
+ * 判断路由是否是子路由
+ */
+export const isChildPage = (routes: TagTypes[]) => {
+  let isChild = false;
+  // routes.some((item) => item.path !== '/' && item.path !== '*');
+  routes.some((item) => {
+    if (!item?.hidden) {
+      isChild = true;
+      return true;
+    }
+    if (item?.routes && item?.routes?.length > 0) {
+      let isNewChid = isChildPage(item?.routes);
+      if (isNewChid) {
+        isChild = true;
+        return true;
+      }
+    }
+  });
+  return isChild;
+};
