@@ -1,6 +1,6 @@
 {
   "name": "magical-antd-ui",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "一款基于 react18 + antd5 封装的神奇组件",
   "license": "MIT",
   "main": "lib/esm/index",
@@ -23,7 +23,7 @@
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "notice": "node ./scripts/notice.js",
     "prepare": "husky install && dumi setup",
-    "release": "standard-version -a -n -i src/docs/version/CHANGELOG.md && npm publish --access public && npm run notice",
+    "release": "standard-version -a -n -i src/docs/version/CHANGELOG.md && npm publish --access public",
     "start": "npm run dev",
     "test:all": "jest --coverage --bail",
     "test:staged": "node jest.staged.js"
