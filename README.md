@@ -37,6 +37,8 @@ $ yarn run docs:preview
 $ yarn run doctor
 ```
 
+执行 yarn build 时，切换：nvm use 18.12.0；执行发包 npm publish 时，切换：nvm use 14.18.0
+
 ## LICENSE
 
 MIT

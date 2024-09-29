@@ -17,7 +17,7 @@ import {
 } from 'antd';
 import {
   getAllNodes,
-  getCurrentTime,
+  // getCurrentTime,
   getTagTitle,
   TagTypes,
 } from 'magical-antd-ui';
@@ -78,7 +78,7 @@ const Index: React.FC<Iprops> = ({
       ?.routes?.filter((item: any) => !item.redirect) || [];
 
   const countDownTimer = useRef<any>(null); // 倒计时标记
-  const [timeView, setTimeView] = useState<any>(null); // 倒计时显示
+  const [timeView] = useState<any>(null); // 倒计时显示
   const connectInfo = (window.navigator as any).connection; //网络信息
 
   const {
@@ -96,33 +96,35 @@ const Index: React.FC<Iprops> = ({
 
   // 路由变化设置选择项
   const initSetTabs = (path: string) => {
+    const addBreadcrumbItem = (path: string, title: React.ReactNode) => ({
+      path,
+      title,
+      className: 'disabled-breadcrumb-item',
+    });
+    const segments = path.split('/')[1];
     const newAllRoutes = getAllNodes(routes);
     // 拿到当前路由对象信息
-    let routeItem: any = newAllRoutes.find(
-      (val: TagTypes) => val.key === path.split('/')[1],
+    let routeItem: TagTypes | undefined = newAllRoutes.find(
+      (val: TagTypes) => val.key === segments,
     );
+
     let arr = [];
     // 存在子路由的项
-    if (routeItem?.routes?.length > 0) {
-      const pathTitle = getTagTitle('/' + path.split('/')[1], routes);
-      arr.push({
-        path,
-        title: (
+    if (routeItem && routeItem?.routes && routeItem?.routes?.length > 0) {
+      const pathTitle = getTagTitle('/' + segments, routes);
+      arr.push(
+        addBreadcrumbItem(
+          path,
           <>
             <LaptopOutlined />
             <span>{pathTitle}</span>
-          </>
+          </>,
         ),
-        className: 'disabled-breadcrumb-item',
-      });
+      );
     }
     // 不存在子路由的项
     const pathTitle1 = getTagTitle(path, routes);
-    arr.push({
-      path,
-      title: pathTitle1,
-      className: 'disabled-breadcrumb-item',
-    });
+    arr.push(addBreadcrumbItem(path, pathTitle1));
     setBreadcrumbItems([
       {
         path: '/',
@@ -138,9 +140,9 @@ const Index: React.FC<Iprops> = ({
 
   useEffect(() => {
     // 获取当前时间
-    countDownTimer.current = setInterval(() => {
-      setTimeView(getCurrentTime());
-    }, 1000);
+    // countDownTimer.current = setInterval(() => {
+    //   setTimeView(getCurrentTime());
+    // }, 1000);
     // 监听外部窗口宽度的变化，如果小于 1024px，自动收起侧边栏
     const handleResize = () => {
       setCollapsed(window.innerWidth < 1024);
