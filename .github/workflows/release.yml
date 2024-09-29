@@ -35,7 +35,7 @@ jobs:
           node-version: ${{ matrix.node-version }} # 版本
       # 步骤3 安装依赖
       - name: npm install
-        run: npm install
+        run: npm install --legacy-peer-deps
       # 步骤4 打包
       - name: build
         run: npm run docs:build
