@@ -117,12 +117,16 @@ const Index: React.FC<Iprops> = ({
     let routeItem: TagTypes | undefined = newAllRoutes.find(
       (val: TagTypes) => val.key === segments,
     );
-
-    let arr = [];
+    let breadcrumbItems: { title: any; path: string; className?: string }[] = [
+      {
+        path: '/',
+        title: <HomeOutlined />,
+      },
+    ];
     // 存在子路由的项
     if (routeItem && routeItem?.routes && routeItem?.routes?.length > 0) {
       const pathTitle = getTagTitle('/' + segments, routes);
-      arr.push(
+      breadcrumbItems.push(
         addBreadcrumbItem(
           path,
           <>
@@ -134,14 +138,8 @@ const Index: React.FC<Iprops> = ({
     }
     // 不存在子路由的项
     const pathTitle1 = getTagTitle(path, routes);
-    arr.push(addBreadcrumbItem(path, pathTitle1));
-    setBreadcrumbItems([
-      {
-        path: '/',
-        title: <HomeOutlined />,
-      },
-      ...arr,
-    ]);
+    breadcrumbItems.push(addBreadcrumbItem(path, pathTitle1));
+    setBreadcrumbItems(breadcrumbItems);
   };
   // 切换路由以及变更语言时路由内容都会有变化
   useEffect(() => {
