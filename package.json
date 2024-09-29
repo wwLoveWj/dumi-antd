@@ -1,6 +1,6 @@
 {
   "name": "magical-antd-ui",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "一款基于 react18 + antd5 封装的神奇组件",
   "license": "MIT",
   "main": "lib/esm/index",
@@ -13,7 +13,7 @@
   "scripts": {
     "build": "father build",
     "build:watch": "father dev",
-    "commit": "cz && npm run notice",
+    "commit": "cz && npm run robot",
     "dev": "dumi dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
@@ -21,9 +21,9 @@
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "notice": "node ./scripts/notice.js",
     "prepare": "husky install && dumi setup",
-    "release": "standard-version -a -i src/docs/version/CHANGELOG.md && git push --follow-tags origin devlop-master && npm publish && npm run notice ",
+    "release": "standard-version -a -i src/docs/version/CHANGELOG.md && git push --follow-tags origin devlop-master && npm publish && npm run robot",
+    "robot": "node ./scripts/notice.js",
     "start": "npm run dev",
     "test:all": "jest --coverage --bail",
     "test:staged": "node jest.staged.js"
