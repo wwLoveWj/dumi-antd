@@ -16,6 +16,13 @@ toc: content
 # 更新日志
 
 
+### [0.0.15](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.14...v0.0.15) (2024-09-29)
+
+
+### Bug Fixes
+
+* **区分路由:** 路由v5和v6版本的区分 ([2175ec0](https://github.com/wwLoveWj/dumi-antd/commit/2175ec0274bb3dd1b78eba33038995cae2efc0fe))
+
 ### [0.0.14](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.13...v0.0.14) (2024-09-29)
 
 ### [0.0.13](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.12...v0.0.13) (2024-09-29)
