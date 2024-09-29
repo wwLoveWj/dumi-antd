@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmagical_antd_ui=self.webpackChunkmagical_antd_ui||[]).push([[844],{35622:function(E,u,a){a.r(u);var n=a(50392),c=a(67294),_=a(85893),t="3L+J";u.default=function(){return(0,_.jsx)(n.PrimaryButton,{_nk:"".concat(t,"11"),children:"\u9ED8\u8BA4\u6309\u94AE"})}}}]);
