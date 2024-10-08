@@ -2,6 +2,7 @@
 category: Components
 title: 樱花飘落特效 # 组件的标题，会在菜单侧边栏展示
 toc: content # 在页面右侧展示锚点链接
+# cover: https://cdn.jsdelivr.net/gh/wwLoveWj/Picture-bed@imgs/images/202409292054745.png
 group: # 分组
   title: 动画背景 # 所在分组的名称
   order: 4 # 分组排序，值越小越靠前
