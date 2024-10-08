@@ -66,6 +66,7 @@
     "lodash-es": "^4.17.21",
     "qs": "^6.13.0",
     "react-activation": "^0.12.4",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-schema-render": "^0.0.5",
     "umi-plugin-keep-alive": "^0.0.1-beta.35"
   },
@@ -77,6 +78,7 @@
     "@types/lodash-es": "^4.17.12",
     "@types/qs": "^6.9.16",
     "@types/react": "^18.0.0",
+    "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "^18.0.0",
     "@umijs/lint": "^4.0.0",
     "commitizen": "^4.3.1",
