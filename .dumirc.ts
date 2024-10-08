@@ -27,6 +27,9 @@ export default defineConfig({
       { title: '更新记录', link: '/version/changelog' },
     ],
   },
+  // theme: {
+  //   '@ant-prefix': 'magical-antd-ui',
+  // },
   // github page
   base: `/${repo}/`,
   publicPath: `/${repo}/`,
