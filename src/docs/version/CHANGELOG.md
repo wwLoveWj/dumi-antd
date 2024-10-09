@@ -16,6 +16,23 @@ toc: content
 # 更新日志
 
 
+### [0.0.23](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.22...v0.0.23) (2024-10-09)
+
+
+### Features
+
+* 变更layout暴露文件 ([52e9beb](https://github.com/wwLoveWj/dumi-antd/commit/52e9beb5f94a73db81bd0d91352ec5b5ec005635))
+* 复制案例补全 ([300511b](https://github.com/wwLoveWj/dumi-antd/commit/300511b7ed32b1d7e818c27e3e01cd204053dda7))
+* 复制案例补全 ([01cb024](https://github.com/wwLoveWj/dumi-antd/commit/01cb024c088dc21e538616dc863896d038025417))
+* 复制功能增加 ([813489a](https://github.com/wwLoveWj/dumi-antd/commit/813489a9ddb3bfdaba5cc4dd7b8ec1fb494a7db4))
+* 面包屑的样式 ([781fd87](https://github.com/wwLoveWj/dumi-antd/commit/781fd87974eac708de166a8695da50b88d0f6f13))
+* 判断路由是否是子路由 ([497e634](https://github.com/wwLoveWj/dumi-antd/commit/497e6345e24f83a0060791de29350377406d9b45))
+* 优化layout获取面包屑配置方法 ([eb4ff66](https://github.com/wwLoveWj/dumi-antd/commit/eb4ff660a0709a8c0dadc939d9602db9d7096bda))
+* 增加弹窗Modal ([c5c571e](https://github.com/wwLoveWj/dumi-antd/commit/c5c571eadf6def5c4c6a0c84134446ecfd61f394))
+* 组件预览 ([e9129ec](https://github.com/wwLoveWj/dumi-antd/commit/e9129ecc893deed822e066e749234d5d8774ee5a))
+* 组件预览 ([be08c99](https://github.com/wwLoveWj/dumi-antd/commit/be08c995f8269a488b4e2af4787c318209063a0b))
+* MsConfigProvider配置的增加 ([065f817](https://github.com/wwLoveWj/dumi-antd/commit/065f8176c961dac7da81d9a58944f8f41434e40e))
+
 ### [0.0.22](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.21...v0.0.22) (2024-09-29)
 
 ### [0.0.21](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.20...v0.0.21) (2024-09-29)

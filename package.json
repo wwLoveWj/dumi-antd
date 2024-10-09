@@ -1,6 +1,6 @@
 {
   "name": "magical-antd-ui",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "一款基于 react18 + antd5 封装的神奇组件",
   "license": "MIT",
   "main": "lib/esm/index",
