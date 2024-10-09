@@ -1,9 +1,9 @@
 ---
-title: MsCopy - 复制
+title: WjCopy - 复制
 toc: content
 group:
   title: 操作
-cover: /images/mscopy.png
+cover: /images/wjcopy.png
 ---
 
 ## 基本使用
