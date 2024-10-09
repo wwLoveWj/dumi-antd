@@ -122,7 +122,6 @@ export const reducer = (
   state: NiceModalStore = initialState,
   action: NiceModalAction,
 ): NiceModalStore => {
-  debugger;
   switch (action.type) {
     case 'nice-modal/show': {
       const { modalId, args } = action.payload;

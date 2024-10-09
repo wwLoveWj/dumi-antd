@@ -5,7 +5,7 @@ toc: content
 
 # 版本更新
 
-`antd-ms` 遵循 [Semantic Versioning 2.0.0](/guide/standard#版本号规范) 语义化版本规范。
+`antd-wj` 遵循 [Semantic Versioning 2.0.0](/guide/standard#版本号规范) 语义化版本规范。
 
 # 发布周期
 

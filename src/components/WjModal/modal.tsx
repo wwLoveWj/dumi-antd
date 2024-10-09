@@ -108,7 +108,7 @@ const MsModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
         {!isDevopsModal ? (
           children
         ) : (
-          <Card loading={true}>
+          <Card loading={false}>
             <div className="ms-devops-modal-layout">
               <div className="ms-devops-modal-left">
                 <div className="ms-devops-modal-title">{titleContent}</div>
