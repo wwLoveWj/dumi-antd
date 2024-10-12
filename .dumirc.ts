@@ -42,6 +42,28 @@ export default defineConfig({
     `.dumi-vite-header-content{
      margin: 0 20px !important;
     }`,
+    `/* ---滚动条默认显示样式-- */
+    ::-webkit-scrollbar {
+      width: 9px;
+      height: 9px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(157, 165, 183, 0.5);
+      background-clip: padding-box;
+      border-color: transparent;
+      border-style: dashed;
+      border-width: 2px;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(157, 165, 183, 0.8);
+      background-clip: border-box;
+    }
+    /*---滚动框背景样式--*/
+    ::-webkit-scrollbar-track-piece {
+      background-color: #fff;
+      -webkit-border-radius: 0;
+    }`,
   ],
   resolve: {
     docDirs: ['src/docs', './CHANGELOG.md'],

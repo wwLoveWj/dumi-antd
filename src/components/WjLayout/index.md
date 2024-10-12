@@ -1,6 +1,6 @@
 ---
 category: Components
-title: WjLayout # 组件的标题，会在菜单侧边栏展示
+title: WjLayout 布局 # 组件的标题，会在菜单侧边栏展示
 toc: content # 在页面右侧展示锚点链接
 cover: https://cdn.jsdelivr.net/gh/wwLoveWj/Picture-bed@imgs/images/202409292049065.png
 group: # 分组
