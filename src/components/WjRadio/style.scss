@@ -3,7 +3,14 @@ $radioDur: 0.2s;
 $timing1: cubic-bezier(0.45, 0.05, 0.55, 0.95);
 $timing2: cubic-bezier(0.5, 0, 0.5, 2);
 $radios: 3;
+$tranlateY: var(--tranlateY);
+$tranlateX: var(--tranlateX);
 
+// 将全局变量转换为 SCSS 可识别的形式
+// $primary-color: map-get($__COLOR_VARS__, 'primaryColor');
+// $secondary-color: map-get($__COLOR_VARS__, 'secondaryColor');
+// 选项的颜色 
+$radio-color: var(--colorRadio);
 // * {
 //     border: 0;
 //     box-sizing: border-box;
@@ -20,11 +27,11 @@ $radios: 3;
 //     line-height: 1.5;
 //     padding: 1.5em 0;
 // }
-
+.wj-radio{
 form {
-    display: block;
+    display: flex;
     margin: auto;
-    max-width: 10em;
+    max-width: 20em;
     position: relative;
 }
 
@@ -69,7 +76,7 @@ label span,
 input:checked+label,
 input:checked+label span,
 .worm__segment:before {
-    color: #255ff4;
+    color: $radio-color;
 }
 
 input:checked+label {
@@ -134,7 +141,7 @@ input:checked+label {
 @for $s from 1 through $radios {
     input:nth-of-type(#{$s}):checked~.worm .worm__segment {
         @if $s>1 {
-            transform: translateY(3em * ($s - 1))
+            transform: translateX(calc($tranlateX * ($s - 1)))
         }
 
         &:before {
@@ -146,11 +153,12 @@ input:checked+label {
 
         from,
         to {
-            transform: translateX(0)
+            transform: translateY(0)
         }
 
         50% {
-            transform: translateX(-1.5em)
+            transform: translateY($tranlateY)
         }
     }
+}
 }
