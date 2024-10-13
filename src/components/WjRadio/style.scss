@@ -22,9 +22,9 @@ $radios: 3;
 // }
 
 form {
-    display: flex;
+    display: block;
     margin: auto;
-    max-width: 20em;
+    max-width: 10em;
     position: relative;
 }
 
@@ -43,7 +43,7 @@ label {
     transition: color $radioDur $timing1;
 
     &:not(:last-of-type) {
-        margin-right: 1.5em
+        margin-bottom: 1.5em
     }
 
     span {
@@ -51,7 +51,7 @@ label {
             0 0.2em 0.2em $shadowColor,
             0 0.3em 0.2em $shadowColor inset;
         display: inline-block;
-        margin-right: 0.7em;
+        margin-right: 0.5em;
         vertical-align: bottom;
         width: 1.5em;
         height: 1.5em;
@@ -134,7 +134,7 @@ input:checked+label {
 @for $s from 1 through $radios {
     input:nth-of-type(#{$s}):checked~.worm .worm__segment {
         @if $s>1 {
-            transform: translateX(4.4em * ($s - 1))
+            transform: translateY(3em * ($s - 1))
         }
 
         &:before {
@@ -146,11 +146,11 @@ input:checked+label {
 
         from,
         to {
-            transform: translateY(0)
+            transform: translateX(0)
         }
 
         50% {
-            transform: translateY(-1.5em)
+            transform: translateX(-1.5em)
         }
     }
 }
