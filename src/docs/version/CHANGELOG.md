@@ -16,6 +16,18 @@ toc: content
 # 更新日志
 
 
+### [0.0.25](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.23...v0.0.25) (2024-10-13)
+
+
+### Features
+
+* 编写drawer组件 ([33b0de8](https://github.com/wwLoveWj/dumi-antd/commit/33b0de852b57d8523107b42b6f8f582fa77d5931))
+* 更新一些滚动条的配置 ([24318b0](https://github.com/wwLoveWj/dumi-antd/commit/24318b05ff24c847175d9d2267dc3b4a1c8972fc))
+* 兼容横向纵向模块变量 ([7a010a1](https://github.com/wwLoveWj/dumi-antd/commit/7a010a128686717c665005e713e9d567c9abda03))
+* 提交原始竖向radio样式 ([a531c55](https://github.com/wwLoveWj/dumi-antd/commit/a531c55b54e237e8a6b8802876ce92d5f3397eb2))
+* radio的完结 ([ebe5ebf](https://github.com/wwLoveWj/dumi-antd/commit/ebe5ebf2b76604e6dc57ce299b39fd89764c454e))
+* radio横向跳动体验 ([e229c19](https://github.com/wwLoveWj/dumi-antd/commit/e229c1913a026d74ffad41c73135181dc0200df7))
+
 ### [0.0.24](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.23...v0.0.24) (2024-10-09)
 
 ### [0.0.23](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.22...v0.0.23) (2024-10-09)

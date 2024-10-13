@@ -1,6 +1,6 @@
 {
   "name": "magical-antd-ui",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "一款基于 react18 + antd5 封装的神奇组件",
   "license": "MIT",
   "main": "lib/esm/index",
@@ -68,7 +68,8 @@
     "react-activation": "^0.12.4",
     "react-copy-to-clipboard": "^5.1.0",
     "react-schema-render": "^0.0.5",
-    "umi-plugin-keep-alive": "^0.0.1-beta.35"
+    "umi-plugin-keep-alive": "^0.0.1-beta.35",
+    "webpack": "^5.95.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
