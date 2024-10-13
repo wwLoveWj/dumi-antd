@@ -26,10 +26,11 @@ export default function WjRadio({
   value,
   onChange,
   labelWidth = 200,
-  styles = {
-    '--colorRadio': '#255ff4',
-    '--tranlateX': '6.65em',
-    '--tranlateY': '-2.5em',
+  configuration = {
+    colorRadio: '#255ff4',
+    jumpX: '6.65em',
+    jumpY: '-2.5em',
+    mode: 'flex',
   },
 }: {
   options?: RadioOptionType[];
@@ -37,9 +38,43 @@ export default function WjRadio({
   onChange: (value: string) => void;
   styles?: Record<string, string>;
   labelWidth?: string | number;
+  configuration?: {
+    /**
+     * 颜色
+     */
+    colorRadio?: string;
+    /**
+     * 横向偏移量
+     */
+    jumpX?: string;
+    /**
+     * 纵向偏移量
+     */
+    jumpY?: string;
+    mode?: 'flex' | 'block';
+    widthRadio?: string;
+  };
 }) {
   return (
-    <div className="wj-radio" style={styles}>
+    <div
+      className="wj-radio"
+      style={
+        {
+          '--colorRadio': configuration?.colorRadio || '#255ff4',
+          '--jumpLen': configuration?.jumpX || '6.65em',
+          '--tranlateY': configuration?.jumpY || '-2.5em',
+          '--mode': configuration?.mode || 'flex',
+          '--width': configuration?.widthRadio || '20em',
+          //   '--jumpDir':
+          //     configuration?.mode === 'flex'
+          //       ? `translateY(${configuration?.jumpY || '-2.5em'})`
+          //       : `translateX(${configuration?.jumpY || '-1.5em'})`,
+          //   '--jumpDirInit':
+          //     configuration?.mode === 'flex' ? 'translateY(0)' : 'translateX(0)',
+          ...(configuration || {}),
+        } as Record<string, string>
+      }
+    >
       <form>
         {options?.map((item) => (
           <>

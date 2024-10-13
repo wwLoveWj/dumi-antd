@@ -4,13 +4,18 @@ $timing1: cubic-bezier(0.45, 0.05, 0.55, 0.95);
 $timing2: cubic-bezier(0.5, 0, 0.5, 2);
 $radios: 3;
 $tranlateY: var(--tranlateY);
-$tranlateX: var(--tranlateX);
+// 跳跃的步长
+$jumpLen: var(--jumpLen);
 
 // 将全局变量转换为 SCSS 可识别的形式
 // $primary-color: map-get($__COLOR_VARS__, 'primaryColor');
 // $secondary-color: map-get($__COLOR_VARS__, 'secondaryColor');
 // 选项的颜色 
 $radio-color: var(--colorRadio);
+$mode: var(--mode);
+$width: var(--width);
+// $jumpDir: var(--jumpDir);
+// $jumpDirInit:var(--jumpDirInit);
 // * {
 //     border: 0;
 //     box-sizing: border-box;
@@ -29,9 +34,9 @@ $radio-color: var(--colorRadio);
 // }
 .wj-radio{
 form {
-    display: flex;
+    display: $mode;
     margin: auto;
-    max-width: 20em;
+    max-width: $width;
     position: relative;
 }
 
@@ -141,7 +146,11 @@ input:checked+label {
 @for $s from 1 through $radios {
     input:nth-of-type(#{$s}):checked~.worm .worm__segment {
         @if $s>1 {
-            transform: translateX(calc($tranlateX * ($s - 1)))
+            @if $mode == flex {
+                transform: translateX(calc($jumpLen * ($s - 1)))
+            } @else {
+                transform: translateY(calc($jumpLen * ($s - 1)))
+            }       
         }
 
         &:before {
@@ -153,11 +162,21 @@ input:checked+label {
 
         from,
         to {
-            transform: translateY(0)
+            // transform: $jumpDirInit
+            @if $mode == flex {
+                transform: translateY(0)
+            } @else {
+                transform: translateX(0)
+            }
         }
-
         50% {
-            transform: translateY($tranlateY)
+            @if $mode == flex {
+                transform: translateY($tranlateY)
+            } @else {
+                transform: translateX($tranlateY)
+            }
+            // transform: $jumpDir
+            // transform: translateY($tranlateY)
         }
     }
 }
