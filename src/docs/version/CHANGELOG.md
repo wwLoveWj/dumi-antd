@@ -16,6 +16,16 @@ toc: content
 # 更新日志
 
 
+### [0.0.30](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.25...v0.0.30) (2024-10-13)
+
+### [0.0.29](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.25...v0.0.29) (2024-10-13)
+
+### [0.0.28](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.25...v0.0.28) (2024-10-13)
+
+### [0.0.27](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.25...v0.0.27) (2024-10-13)
+
+### [0.0.26](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.25...v0.0.26) (2024-10-13)
+
 ### [0.0.25](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.23...v0.0.25) (2024-10-13)
 
 
