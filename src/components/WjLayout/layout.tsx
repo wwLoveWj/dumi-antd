@@ -5,14 +5,13 @@ import {
   MenuUnfoldOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
 import {
   Avatar,
   Badge,
   Breadcrumb,
   Button,
-  Dropdown,
   Layout,
+  Popover,
   theme,
 } from 'antd';
 import {
@@ -22,7 +21,7 @@ import {
   TagTypes,
 } from 'magical-antd-ui';
 import React, { useEffect, useRef, useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 // import { KeepAlive } from 'umi-plugin-keep-alive';
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
 import WjBreadcrumb from './components/Breadcrumb';
@@ -40,7 +39,11 @@ interface Iprops {
   /**
    * 头像处的下拉设置菜单
    */
-  avatarItems?: MenuProps['items'];
+  avatarItems?: {
+    key: string;
+    icon: React.ReactNode;
+    label: React.ReactNode;
+  }[];
   /**
    * 项目名
    * @default "项目模板"
@@ -82,7 +85,11 @@ const Setting = ({
   /**
    * 头像处的下拉设置菜单
    */
-  avatarItems?: MenuProps['items'];
+  avatarItems?: {
+    key: string;
+    icon: React.ReactNode;
+    label: React.ReactNode;
+  }[];
   /**
    * 未读消息数量
    */
@@ -94,7 +101,33 @@ const Setting = ({
     <>
       <div style={style}>{timeView}</div>
       {/* 个人设置 */}
-      <Dropdown menu={{ items: avatarItems }} placement="bottomRight" arrow>
+      <Popover
+        trigger={'hover'}
+        content={
+          <ul className="avatar-settings">
+            {avatarItems?.map((item) => (
+              <li key={item?.key}>
+                <i>{item?.icon}</i>
+                <span>{item?.label}</span>
+              </li>
+            ))}
+          </ul>
+        }
+        title={
+          <div className="avatar-title">
+            <Avatar
+              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+              style={{
+                backgroundColor: '#f56a00',
+                cursor: 'pointer',
+                margin: '0 12px 0 0',
+              }}
+            />
+            <span>json brower</span>
+          </div>
+        }
+        placement="bottomRight"
+      >
         <Badge count={unreadMsgcount}>
           <Avatar
             src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -105,7 +138,19 @@ const Setting = ({
             }}
           />
         </Badge>
-      </Dropdown>
+      </Popover>
+      {/* <Dropdown menu={{ items: avatarItems }} placement="bottomRight" arrow>
+        <Badge count={unreadMsgcount}>
+          <Avatar
+            src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+            style={{
+              backgroundColor: '#f56a00',
+              marginLeft: '12px',
+              cursor: 'pointer',
+            }}
+          />
+        </Badge>
+      </Dropdown> */}
     </>
   );
 };
@@ -210,6 +255,14 @@ const Index: React.FC<Iprops> = ({
     };
   }, []);
 
+  function itemRender(route: any, params: any, routes: any, paths: string[]) {
+    const last = routes.indexOf(route) === routes.length - 1;
+    return last ? (
+      <span>{route.title}</span>
+    ) : (
+      <Link to={paths.join('/')}>{route.title}</Link>
+    );
+  }
   return (
     <Layout>
       <Layout>
@@ -273,6 +326,7 @@ const Index: React.FC<Iprops> = ({
               <Breadcrumb
                 style={{ padding: '4px 12px' }}
                 items={breadcrumbItems}
+                itemRender={itemRender}
               />
               {!isShowHeader && (
                 <div
