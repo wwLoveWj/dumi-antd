@@ -106,7 +106,11 @@ function SideBarRender({
       theme={theme}
       selectedKeys={saveKeyPath}
       openKeys={stateOpenKeys}
-      style={{ height: `calc(100% - 60px)`, borderRight: 0 }}
+      style={{
+        height: `calc(100% - 60px)`,
+        borderRight: 0,
+        background: 'transparent',
+      }}
       onOpenChange={onOpenChange}
       onSelect={onSelectMenu}
     >

@@ -1,63 +1,64 @@
+@ant-prefix: ant;
+
 .user-page-tabs {
   height: 30px;
   padding: 4px 8px;
-  background: #ffffff;
   overflow-y: hidden;
 
   // :global {
-  .ant-tabs {
+  .@{ant-prefix}-tabs {
     height: 30px !important;
     line-height: 30px !important;
   }
 
-  .ant-tabs-nav {
+  .@{ant-prefix}-tabs-nav {
     margin: 0 !important;
   }
 
-  .ant-tabs-nav::before {
+  .@{ant-prefix}-tabs-nav::before {
     border: 0 !important;
   }
 
-  .ant-tabs-content-holder {
+  .@{ant-prefix}-tabs-content-holder {
     height: 0 !important;
   }
 
-  .ant-tabs-tab {
+  .@{ant-prefix}-tabs-tab {
     height: 22px;
     line-height: 22px;
-    background: #ffffff !important;
+    // background: #ffffff !important;
     border-radius: 2px;
     padding: 0 8px !important;
     border: 1px solid #d9d9d9 !important;
   }
 
-  .ant-tabs-tab-remove {
+  .@{ant-prefix}-tabs-tab-remove {
     margin-left: 0px !important;
   }
 
-  .ant-tabs-tab-remove:hover {
+  .@{ant-prefix}-tabs-tab-remove:hover {
     color: #1890ff !important;
   }
 
-  .ant-tabs-tab-active {
+  .@{ant-prefix}-tabs-tab-active {
     border: 1px solid #1890ff !important;
 
-    .ant-tabs-tab-remove {
+    .@{ant-prefix}-tabs-tab-remove {
       color: #1890ff !important;
     }
   }
 
-  .ant-tabs-tab+.ant-tabs-tab {
+  .@{ant-prefix}-tabs-tab+.@{ant-prefix}-tabs-tab {
     margin: 0 0 0 8px;
   }
 
-  .ant-tabs-nav-more {
+  .@{ant-prefix}-tabs-nav-more {
     padding: 0px 16px !important;
     height: 22px !important;
     line-height: 22px !important;
   }
 
-  .ant-tabs-ink-bar {
+  .@{ant-prefix}-tabs-ink-bar {
     width: 0 !important;
   }
 

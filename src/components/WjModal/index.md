@@ -19,6 +19,17 @@ MsModal 组件的主要目的是为了实现代码逻辑的模块化与解耦，
 
 另外当需要一个简洁的确认框询问用户时，可以使用 [MsConfirm](/components/ms-confirm)。
 
+## 注意
+
+在使用时需要在umi项目的入口文件 app.ts 中，为其入口元素包裹上 MsConfigProvider：
+```
+import { MsConfigProvider } from "magical-antd-ui";
+<MsConfigProvider>
+  <ConfigProvider prefixCls={Package.name + "-ant"} locale={zhCN}>
+    {container}
+  </ConfigProvider>
+</MsConfigProvider>
+```
 
 ## 代码演示
 

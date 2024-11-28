@@ -21,7 +21,7 @@ import {
   getTagTitle,
   TagTypes,
 } from 'magical-antd-ui';
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 // import { KeepAlive } from 'umi-plugin-keep-alive';
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -68,7 +68,47 @@ interface Iprops {
    * @default false
    */
   isRawData?: boolean;
+  extraRender?: any;
+  themeMenu?: MenuType;
+  headerStyle?: any; //头部样式
 }
+// 头部设置
+const Setting = ({
+  style = {},
+  avatarItems,
+  unreadMsgcount,
+}: {
+  style?: object;
+  /**
+   * 头像处的下拉设置菜单
+   */
+  avatarItems?: MenuProps['items'];
+  /**
+   * 未读消息数量
+   */
+  unreadMsgcount?: number;
+}) => {
+  const [timeView] = useState<any>(null); // 倒计时显示
+  console.log('干啥呢？我又被渲染了~');
+  return (
+    <>
+      <div style={style}>{timeView}</div>
+      {/* 个人设置 */}
+      <Dropdown menu={{ items: avatarItems }} placement="bottomRight" arrow>
+        <Badge count={unreadMsgcount}>
+          <Avatar
+            src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+            style={{
+              backgroundColor: '#f56a00',
+              marginLeft: '12px',
+              cursor: 'pointer',
+            }}
+          />
+        </Badge>
+      </Dropdown>
+    </>
+  );
+};
 const Index: React.FC<Iprops> = ({
   avatarItems,
   routes: menus,
@@ -78,6 +118,9 @@ const Index: React.FC<Iprops> = ({
   unreadMsgcount,
   children,
   isRawData = false,
+  extraRender, //设置处额外的操作区域
+  themeMenu = 'dark',
+  headerStyle = { background: '#fff' }, //头部的背景色
 }) => {
   console.log('我被渲染了吗？');
   // 获取到所有的菜单数据进行处理
@@ -88,13 +131,13 @@ const Index: React.FC<Iprops> = ({
         ?.routes?.filter((item: any) => !item.redirect) || [];
 
   const countDownTimer = useRef<any>(null); // 倒计时标记
-  const [timeView] = useState<any>(null); // 倒计时显示
+  // const [timeView] = useState<any>(null); // 倒计时显示
   const connectInfo = (window.navigator as any).connection; //网络信息
 
   const {
     token: { borderRadiusLG },
   } = theme.useToken();
-  const [themeMenu] = useState<MenuType>('dark');
+  // const [themeMenu] = useState<MenuType>('dark');
   const [themeColor] = useState('#001629'); //切换headers主题
 
   const [collapsed, setCollapsed] = useState(false); //菜单收起展开
@@ -126,9 +169,10 @@ const Index: React.FC<Iprops> = ({
     // 存在子路由的项
     if (routeItem && routeItem?.routes && routeItem?.routes?.length > 0) {
       const pathTitle = getTagTitle('/' + segments, routes);
+      console.log(pathTitle, '存在父级路由', segments);
       breadcrumbItems.push(
         addBreadcrumbItem(
-          path,
+          '/' + segments,
           <>
             <LaptopOutlined />
             <span>{pathTitle}</span>
@@ -136,9 +180,11 @@ const Index: React.FC<Iprops> = ({
         ),
       );
     }
+    console.log(breadcrumbItems, '1', segments);
     // 不存在子路由的项
     const pathTitle1 = getTagTitle(path, routes);
     breadcrumbItems.push(addBreadcrumbItem(path, pathTitle1));
+    console.log(breadcrumbItems, '2', segments);
     setBreadcrumbItems(breadcrumbItems);
   };
   // 切换路由以及变更语言时路由内容都会有变化
@@ -164,34 +210,14 @@ const Index: React.FC<Iprops> = ({
     };
   }, []);
 
-  // 头部设置
-  const Setting = memo(({ style = {} }: { style?: object }) => {
-    console.log('干啥呢？我又被渲染了~');
-    return (
-      <>
-        <div style={style}>{timeView}</div>
-        {/* 个人设置 */}
-        <Dropdown menu={{ items: avatarItems }} placement="bottomRight" arrow>
-          <Badge count={unreadMsgcount}>
-            <Avatar
-              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
-              style={{
-                backgroundColor: '#f56a00',
-                marginLeft: '12px',
-                cursor: 'pointer',
-              }}
-            />
-          </Badge>
-        </Dropdown>
-      </>
-    );
-  });
   return (
     <Layout>
       <Layout>
         {/* 左侧菜单路由 */}
         <Sider
-          className="sider-area-menu"
+          className={
+            themeMenu === 'light' ? 'sider-area-menu' : 'sider-area-menu-dark'
+          }
           trigger={null}
           collapsible
           collapsed={collapsed}
@@ -203,7 +229,7 @@ const Index: React.FC<Iprops> = ({
           <SideBarRender menus={routes} theme={themeMenu} />
         </Sider>
         {/* 右侧内容区 */}
-        <Layout style={{ background: '#f0f3f4' }}>
+        <Layout style={{ background: '#f5f5f5' }}>
           {isShowHeader && (
             <Header
               style={{
@@ -232,31 +258,44 @@ const Index: React.FC<Iprops> = ({
                   <span>延迟：{connectInfo.rtt}ms</span>
                   <span>带宽：{connectInfo.downlink} Mb/s</span>
                 </div>
-                <Setting style={{ color: '#fff' }} />
+                {/* 右侧额外的操作区域 */}
+                {extraRender && <div>{extraRender}</div>}
+                <Setting
+                  style={{ color: '#fff' }}
+                  avatarItems={avatarItems}
+                  unreadMsgcount={unreadMsgcount}
+                />
               </div>
             </Header>
           )}
-          <div className="settings-right">
-            <Breadcrumb
-              style={{ padding: '6px 12px', background: '#fff' }}
-              items={breadcrumbItems}
-            />
-            {!isShowHeader && (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  position: 'absolute',
-                  right: '18px',
-                  top: '18px',
-                }}
-              >
-                <Setting />
-              </div>
-            )}
+          <div style={headerStyle}>
+            <div className="settings-right">
+              <Breadcrumb
+                style={{ padding: '4px 12px' }}
+                items={breadcrumbItems}
+              />
+              {!isShowHeader && (
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    position: 'absolute',
+                    right: '18px',
+                    top: '18px',
+                  }}
+                >
+                  {/* 右侧额外的操作区域 */}
+                  {extraRender && <div>{extraRender}</div>}
+                  <Setting
+                    avatarItems={avatarItems}
+                    unreadMsgcount={unreadMsgcount}
+                  />
+                </div>
+              )}
+            </div>
+            {/* 打开的路由页签 */}
+            {!isShowHeader && <WjBreadcrumb routes={routes} home={home} />}
           </div>
-          {/* 打开的路由页签 */}
-          {!isShowHeader && <WjBreadcrumb routes={routes} home={home} />}
           <Layout style={{ padding: 12 }}>
             <Content
               style={{
@@ -265,7 +304,7 @@ const Index: React.FC<Iprops> = ({
                 minHeight: 280,
                 // background: colorBgContainer,
                 borderRadius: borderRadiusLG,
-                // background: "#fff",
+                // background: 'yellow',
                 // 高度需要减去headers、面包屑这些
                 height: 'calc(100vh - 152px + 64px)',
                 overflow: 'auto',
@@ -282,4 +321,4 @@ const Index: React.FC<Iprops> = ({
   );
 };
 
-export default memo(Index);
+export default Index;

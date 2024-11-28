@@ -1,7 +1,6 @@
 .user-page-tabs {
   height: 30px;
   padding: 4px 8px;
-  background: #ffffff;
   overflow-y: hidden;
 }
 .user-page-tabs .ant-tabs {
@@ -20,7 +19,6 @@
 .user-page-tabs .ant-tabs-tab {
   height: 22px;
   line-height: 22px;
-  background: #ffffff !important;
   border-radius: 2px;
   padding: 0 8px !important;
   border: 1px solid #d9d9d9 !important;
