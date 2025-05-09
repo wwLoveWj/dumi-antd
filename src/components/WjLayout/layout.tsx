@@ -6,12 +6,13 @@ import {
   getTagTitle,
 } from 'magical-antd-ui';
 import React, { useEffect, useRef, useState } from 'react';
+import { KeepAlive } from 'react-activation';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Iprops, TagTypes } from './type';
-// import { KeepAlive } from 'umi-plugin-keep-alive';
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
 import LeftMenu from './components/BasicComp/LeftMenu';
 import RightTopHeader from './components/HeaderComp';
+import { useRouteInfo } from './hooks/useRouteInfo';
 import './style.less';
 
 const { Content } = Layout;
@@ -45,7 +46,7 @@ const Index: React.FC<Iprops> = ({
   } = theme.useToken();
 
   const [collapsed, setCollapsed] = useState(false); //菜单收起展开
-  // const { path, title, id } = useRoutes();
+  const { path, title, id } = useRouteInfo(routes);
   const { pathname } = useLocation();
   const [breadcrumbItems, setBreadcrumbItems] = useState<
     { title: any; path: string; className?: string }[]
@@ -152,9 +153,9 @@ const Index: React.FC<Iprops> = ({
                 overflow: 'auto',
               }}
             >
-              {/* <KeepAlive id={id} name={path} tabName={title}> */}
-              {children ? children : <Outlet />}
-              {/* </KeepAlive> */}
+              <KeepAlive id={id} name={path} tabName={title}>
+                {children ? children : <Outlet />}
+              </KeepAlive>
             </Content>
           </Layout>
         </Layout>

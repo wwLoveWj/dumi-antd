@@ -22,6 +22,7 @@ export interface TagTypes {
   exact?: boolean;
   redirect?: string;
   hidden?: boolean;
+  id?: string;
 }
 
 export interface Iprops {
