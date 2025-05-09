@@ -6,7 +6,7 @@ $radios: 3;
 $tranlateY: var(--tranlateY);
 // 跳跃的步长
 $jumpLen: var(--jumpLen);
-
+$jumpYLen:var(--jumpYLen);
 // 将全局变量转换为 SCSS 可识别的形式
 // $primary-color: map-get($__COLOR_VARS__, 'primaryColor');
 // $secondary-color: map-get($__COLOR_VARS__, 'secondaryColor');
@@ -14,8 +14,8 @@ $jumpLen: var(--jumpLen);
 $radio-color: var(--colorRadio);
 $mode: var(--mode);
 $width: var(--width);
-// $jumpDir: var(--jumpDir);
-// $jumpDirInit:var(--jumpDirInit);
+$jumpDir: var(--jumpDir);
+$jumpDirInit:var(--jumpDirInit);
 // * {
 //     border: 0;
 //     box-sizing: border-box;
@@ -146,11 +146,11 @@ input:checked+label {
 @for $s from 1 through $radios {
     input:nth-of-type(#{$s}):checked~.worm .worm__segment {
         @if $s>1 {
-            @if $mode == flex {
+            // @if $mode == flex {
                 transform: translateX(calc($jumpLen * ($s - 1)))
-            } @else {
-                transform: translateY(calc($jumpLen * ($s - 1)))
-            }       
+            // } @else {
+            //     transform: translateY(calc($jumpLen * ($s - 1)))
+            // }       
         }
 
         &:before {
@@ -162,20 +162,20 @@ input:checked+label {
 
         from,
         to {
-            // transform: $jumpDirInit
-            @if $mode == flex {
-                transform: translateY(0)
-            } @else {
-                transform: translateX(0)
-            }
+            transform: $jumpDirInit;
+            // @if $mode == flex {
+            //     transform: translateY(0)
+            // } @else {
+            //     transform: translateX(0)
+            // }
         }
         50% {
-            @if $mode == flex {
-                transform: translateY($tranlateY)
-            } @else {
-                transform: translateX($tranlateY)
-            }
-            // transform: $jumpDir
+            // @if $mode == flex {
+            //     transform: translateY($tranlateY)
+            // } @else {
+            //     transform: translateX($tranlateY)
+            // }
+            transform: $jumpDir;
             // transform: translateY($tranlateY)
         }
     }

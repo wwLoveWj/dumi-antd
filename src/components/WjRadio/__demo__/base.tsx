@@ -21,15 +21,15 @@ export default function Base() {
       <WjRadio
         value={selectedValue}
         onChange={handleRadioChange}
-        configuration={{
-          colorRadio: 'red',
-          mode: 'block',
-          jumpX: '3em',
-          jumpY: '-1.5em',
-          widthRadio: '10em',
-          //   '--tranlateX': '6.65em',
-          //   '--tranlateY': '-2.5em',
-        }}
+        // configuration={{
+        //   colorRadio: 'red',
+        //   mode: 'block',
+        //   jumpX: '3em',
+        //   jumpY: '-1.5em',
+        //   widthRadio: '10em',
+        //   //   '--tranlateX': '6.65em',
+        //   //   '--tranlateY': '-2.5em',
+        // }}
       />
     </div>
   );

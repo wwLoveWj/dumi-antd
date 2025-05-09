@@ -65,12 +65,14 @@ export default function WjRadio({
           '--tranlateY': configuration?.jumpY || '-2.5em',
           '--mode': configuration?.mode || 'flex',
           '--width': configuration?.widthRadio || '20em',
-          //   '--jumpDir':
-          //     configuration?.mode === 'flex'
-          //       ? `translateY(${configuration?.jumpY || '-2.5em'})`
-          //       : `translateX(${configuration?.jumpY || '-1.5em'})`,
-          //   '--jumpDirInit':
-          //     configuration?.mode === 'flex' ? 'translateY(0)' : 'translateX(0)',
+          '--jumpYLen':
+            configuration?.mode === 'flex' ? `translateX` : `translateY`,
+          '--jumpDir':
+            configuration?.mode === 'flex'
+              ? `translateY(${configuration?.jumpY || '-2.5em'})`
+              : `translateX(${configuration?.jumpY || '-1.5em'})`,
+          '--jumpDirInit':
+            configuration?.mode === 'flex' ? 'translateY(0)' : 'translateX(0)',
           ...(configuration || {}),
         } as Record<string, string>
       }

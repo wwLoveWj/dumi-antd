@@ -4,11 +4,11 @@ import { getTagTitle, TagTypes, useHistoryToPath } from 'magical-antd-ui';
 import React, { useEffect, useState } from 'react';
 import { useAliveController } from 'react-activation';
 import { useLocation } from 'react-router-dom';
+// import LabelDropdown from './CloseTabs';
 import { pathTxt } from './constant';
 import { useLayoutContext } from './LayoutProvider';
 import './style.less';
 import type { TabTypes } from './type';
-// import LabelDropdown from "./CloseTabs";
 
 const { confirm } = Modal;
 
@@ -33,7 +33,7 @@ const PageTabs = ({
       closable: false,
     },
   ]);
-  //   const { title } = useRouteProps();
+  // const { title } = useRouteProps();
   // 国际化配置
   //   const intl = useIntl();
   //   const t = (id: string) => intl.formatMessage({ id: title });
@@ -47,7 +47,15 @@ const PageTabs = ({
         lastIndex = i - 1;
       }
     });
+    console.log(tabList, 'tabList----------------------');
+    // 找出除当前项之外的所有页面
     const newPanes = tabList.filter((item) => item.key !== targetKey);
+    console.log(
+      newPanes,
+      '其他页面-------------',
+      lastIndex,
+      'lastIndex---------索引',
+    );
     // 判断页签是否为当前选中项，如果是则关闭设置选择项为当前页签的前一个页签，如果不是就直接关闭
     if (newPanes.length && newActiveKey === targetKey) {
       if (lastIndex >= 0) {
@@ -60,11 +68,13 @@ const PageTabs = ({
     setActiveKey(newActiveKey);
     // 关闭页签清除keepalive缓存
     dropScope(targetKey);
+    console.log(newActiveKey, 'newActiveKey-------------新的当前选中项');
     routeChgLink(newActiveKey);
   };
 
   // 点击关闭tab标签
   const handleRemove = (targetKey: any, action: 'add' | 'remove') => {
+    console.log(action, '--------------action关闭模式');
     if (action === 'remove') {
       // 是否存在编辑项
       const isEditing = globalEditPages[targetKey] || false;
@@ -96,6 +106,7 @@ const PageTabs = ({
     tabList?.forEach((item: TabTypes) => {
       pathList.push(item.key);
     });
+    console.log(tabList, 'tabList-------------', path);
     // 判断当前路由是否在页签里，不在就加入页签
     if (!pathList.includes(path) && path !== '/') {
       const pathTitle = getTagTitle(path, routes);

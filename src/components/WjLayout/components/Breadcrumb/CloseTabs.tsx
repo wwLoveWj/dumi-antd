@@ -1,8 +1,8 @@
-import { history, useLocation } from "umi";
-import { useAliveController } from "react-activation";
-import { Dropdown, Tabs } from "antd";
-import React, { useState } from "react";
-import "./style.less";
+import { Dropdown, Tabs } from 'antd';
+import React, { useState } from 'react';
+import { useAliveController } from 'react-activation';
+import { history, useLocation } from 'umi';
+import './style.less';
 
 export default (): React.ReactElement => {
   const { pathname } = useLocation();
@@ -10,16 +10,27 @@ export default (): React.ReactElement => {
   // 获取缓存列表
   const { getCachingNodes, dropScope, clear, refreshScope } =
     useAliveController();
-  const cachingNodes = getCachingNodes();
+  const cachingNodesInit = getCachingNodes().filter(
+    (item) => item.name !== '/home',
+  );
+  // 首页固定
+  const cachingNodes = [
+    {
+      tabName: '首页',
+      name: '/home',
+      id: '/home',
+    },
+    ...cachingNodesInit,
+  ];
   const [open, setOpen] = useState<{ path: string; open: boolean }>({
-    path: "",
+    path: '',
     open: false,
   });
 
   // 阻止右键事件冒泡
   const onRightClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    name: string
+    name: string,
   ) => open.open && open.path === name && e.stopPropagation();
 
   // 点击tab，跳转页面
@@ -71,7 +82,7 @@ export default (): React.ReactElement => {
     if (currIndex > lastIndex) history.push(targetKey);
     cachingNodes.forEach((item, index) => {
       if (index < currIndex) {
-        dropScope(item?.name || "");
+        dropScope(item?.name || '');
       }
     });
   };
@@ -84,14 +95,14 @@ export default (): React.ReactElement => {
     if (currIndex < lastIndex) history.push(targetKey);
     cachingNodes.forEach((item, index) => {
       if (index > currIndex) {
-        dropScope(item?.name || "");
+        dropScope(item?.name || '');
       }
     });
   };
 
   // 关闭全部
   const onAll = () => {
-    history.push("/home");
+    history.push('/home');
     clear();
   };
 
@@ -106,49 +117,51 @@ export default (): React.ReactElement => {
     return (
       <div onClick={(e) => onRightClick(e, name)}>
         <Dropdown
-          trigger={["contextMenu"]}
+          trigger={['contextMenu']}
           onOpenChange={(e) => setOpen({ path: name, open: e })}
           menu={{
             items: [
               {
-                label: "关闭当前",
-                key: JSON.stringify({ name, key: "current" }),
-                disabled: cachingNodes.length <= 1,
+                label: '关闭当前',
+                key: JSON.stringify({ name, key: 'current' }),
+                disabled: cachingNodes.length <= 1 || name === '/home',
                 onClick: onCurrent,
               },
               {
-                label: "关闭其他",
-                key: JSON.stringify({ name, key: "other" }),
-                disabled: cachingNodes.length <= 1,
+                label: '关闭其他',
+                key: JSON.stringify({ name, key: 'other' }),
+                disabled:
+                  cachingNodes.filter((item) => item.name !== '/home').length <
+                    1 || lastIndex === 1, //主要为了兼容首页，首页在然后别的页面也有一个，那首页就可以关闭其他
                 onClick: onOther,
               },
               {
-                label: "关闭左侧",
-                key: JSON.stringify({ name, key: "left" }),
-                disabled: lastIndex === 0,
+                label: '关闭左侧',
+                key: JSON.stringify({ name, key: 'left' }),
+                disabled: [1, 0]?.includes(lastIndex),
                 onClick: onLeft,
               },
               {
-                label: "关闭右侧",
-                key: JSON.stringify({ name, key: "right" }),
+                label: '关闭右侧',
+                key: JSON.stringify({ name, key: 'right' }),
                 disabled: lastIndex === cachingNodes.length - 1,
                 onClick: onRight,
               },
               {
-                label: "全部关闭",
-                key: JSON.stringify({ name, key: "all" }),
+                label: '全部关闭',
+                key: JSON.stringify({ name, key: 'all' }),
                 onClick: onAll,
                 disabled: cachingNodes.length <= 1,
               },
               {
-                label: "重新加载",
-                key: JSON.stringify({ name, key: "refresh" }),
+                label: '重新加载',
+                key: JSON.stringify({ name, key: 'refresh' }),
                 onClick: onRefresh,
               },
             ],
           }}
         >
-          <div className={cachingNodes.length > 1 ? "dropdown-label" : ""}>
+          <div className={cachingNodes.length > 1 ? 'dropdown-label' : ''}>
             {label}
           </div>
         </Dropdown>
@@ -159,7 +172,8 @@ export default (): React.ReactElement => {
   const tabItems = cachingNodes.map((item: any) => ({
     label: labelDropdown(item.name, item.tabName),
     key: item.name,
-    closable: cachingNodes.length > 1,
+    // 控制首页没有关闭按钮
+    closable: item.name !== '/home',
   }));
   return (
     <Tabs
@@ -173,3 +187,5 @@ export default (): React.ReactElement => {
     />
   );
 };
+
+// https://blog.csdn.net/m0_67011584/article/details/135681082?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522615f521d881efc1c0e555000587c7f55%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=615f521d881efc1c0e555000587c7f55&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-135681082-null-null.142^v101^control&utm_term=react-activation%E4%B8%AD%E7%9A%84keepalive%E4%B8%AD%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%20path%2C%20title%2C%20id&spm=1018.2226.3001.4187
