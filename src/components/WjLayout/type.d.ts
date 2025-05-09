@@ -57,7 +57,7 @@ export interface Iprops {
   /**
    * 未读消息数量
    */
-  unreadMsgcount: number;
+  unreadMsgcount?: number;
   children?: any;
   /**
    * 是否直接传入原始路由数据

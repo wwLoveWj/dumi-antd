@@ -1,5 +1,5 @@
 import { Dropdown, Tabs } from 'antd';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useAliveController } from 'react-activation';
 import { history, useLocation } from 'umi';
 import './style.less';
@@ -11,6 +11,7 @@ export default ({
     tabName: '首页',
     name: '/home',
     id: '/homev',
+    maxOpenTags: 7,
   },
 }: {
   fixedRouteConfig?: FixedRouteConfigTypes;
@@ -173,11 +174,17 @@ export default ({
     );
   };
 
-  const tabItems = cachingNodes.map((item: any) => ({
-    label: labelDropdown(item.name, item.tabName),
-    key: item.name,
-    closable: item.name !== fixedRouteConfig?.name,
-  }));
+  const tabItems = useMemo(() => {
+    if (cachingNodesInit.length > fixedRouteConfig.maxOpenTags) {
+      dropScope(cachingNodes[1].name || '');
+      // cachingNodes.splice(1, 1);
+    }
+    return cachingNodes.map((item: any) => ({
+      label: labelDropdown(item.name, item.tabName),
+      key: item.name,
+      closable: item.name !== fixedRouteConfig?.name,
+    }));
+  }, [cachingNodesInit]);
   return (
     <div className={'user-page-tabs'}>
       <Tabs

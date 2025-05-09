@@ -13,4 +13,5 @@ export interface FixedRouteConfigTypes {
   tabName: string;
   name: string;
   id: string | number;
+  maxOpenTags: number;
 }

@@ -26,15 +26,6 @@
 .user-page-tabs .ant-tabs-tab-remove {
   margin-left: 0px !important;
 }
-.user-page-tabs .ant-tabs-tab-remove:hover {
-  color: #1890ff !important;
-}
-.user-page-tabs .ant-tabs-tab-active {
-  border: 1px solid #1890ff !important;
-}
-.user-page-tabs .ant-tabs-tab-active .ant-tabs-tab-remove {
-  color: #1890ff !important;
-}
 .user-page-tabs .ant-tabs-tab + .ant-tabs-tab {
   margin: 0 0 0 8px;
 }

@@ -22,7 +22,7 @@ const Index: React.FC<Iprops> = ({
   routes: menus,
   projectName,
   isShowHeader = false,
-  unreadMsgcount,
+  unreadMsgcount = 0,
   children,
   isRawData = false,
   extraRender, //设置处额外的操作区域
