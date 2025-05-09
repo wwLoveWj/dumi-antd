@@ -7,6 +7,7 @@ export { default as WjActionButton } from './WjActionButton';
 // export { default as WjTreeSelect } from './WjTreeSelect';
 export { default as WjActions } from './WjActions';
 export type { ItemsProps, WjActionsProps } from './WjActions';
+export { default as WjBreadcrumb } from './WjBreadcrumb';
 export { default as MsConfigProvider } from './WjConfigProvider';
 export { default as WjCopy } from './WjCopy';
 export { default as WjDrawer } from './WjDrawer';

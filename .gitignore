@@ -10,3 +10,4 @@ node_modules
 /coverage
 /yarn-error.log
 /**.*tgz
+/.history

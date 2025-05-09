@@ -1,171 +1,33 @@
-import {
-  HomeOutlined,
-  LaptopOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import {
-  Avatar,
-  Badge,
-  Breadcrumb,
-  Button,
-  Layout,
-  Popover,
-  theme,
-} from 'antd';
+import { HomeOutlined, LaptopOutlined } from '@ant-design/icons';
+import { Layout, theme } from 'antd';
 import {
   getAllNodes,
   // getCurrentTime,
   getTagTitle,
-  TagTypes,
 } from 'magical-antd-ui';
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+import { Iprops, TagTypes } from './type';
 // import { KeepAlive } from 'umi-plugin-keep-alive';
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
-import WjBreadcrumb from './components/Breadcrumb';
-import SideBarRender from './components/Menu';
+import LeftMenu from './components/BasicComp/LeftMenu';
+import RightTopHeader from './components/HeaderComp';
 import './style.less';
 
-const { Header, Content, Sider } = Layout;
-export type MenuType = 'light' | 'dark';
-interface Iprops {
-  /**
-   * 是否隐藏头部布局，只显示面包屑简易模式
-   * @default false
-   */
-  isShowHeader?: boolean;
-  /**
-   * 头像处的下拉设置菜单
-   */
-  avatarItems?: {
-    key: string;
-    icon: React.ReactNode;
-    label: React.ReactNode;
-  }[];
-  /**
-   * 项目名
-   * @default "项目模板"
-   */
-  projectName: string;
-  /**
-   * 路由配置
-   * @default []
-   */
-  routes: TagTypes[];
-  /**
-   * 路由首页路径
-   * @default "/"
-   */
-  home?: string;
-  /**
-   * 未读消息数量
-   */
-  unreadMsgcount?: number;
-  children?: any;
-  /**
-   * 是否直接传入原始路由数据
-   * true 为原始，内部直接处理
-   * false 为路由配置，需外部处理成目标路由配置后传入
-   * @default false
-   */
-  isRawData?: boolean;
-  extraRender?: any;
-  themeMenu?: MenuType;
-  headerStyle?: any; //头部样式
-}
-// 头部设置
-const Setting = ({
-  style = {},
-  avatarItems,
-  unreadMsgcount,
-}: {
-  style?: object;
-  /**
-   * 头像处的下拉设置菜单
-   */
-  avatarItems?: {
-    key: string;
-    icon: React.ReactNode;
-    label: React.ReactNode;
-  }[];
-  /**
-   * 未读消息数量
-   */
-  unreadMsgcount?: number;
-}) => {
-  const [timeView] = useState<any>(null); // 倒计时显示
-  console.log('干啥呢？我又被渲染了~');
-  return (
-    <>
-      <div style={style}>{timeView}</div>
-      {/* 个人设置 */}
-      <Popover
-        trigger={'hover'}
-        content={
-          <ul className="avatar-settings">
-            {avatarItems?.map((item) => (
-              <li key={item?.key}>
-                <i>{item?.icon}</i>
-                <span>{item?.label}</span>
-              </li>
-            ))}
-          </ul>
-        }
-        title={
-          <div className="avatar-title">
-            <Avatar
-              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
-              style={{
-                backgroundColor: '#f56a00',
-                cursor: 'pointer',
-                margin: '0 12px 0 0',
-              }}
-            />
-            <span>json brower</span>
-          </div>
-        }
-        placement="bottomRight"
-      >
-        <Badge count={unreadMsgcount}>
-          <Avatar
-            src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
-            style={{
-              backgroundColor: '#f56a00',
-              marginLeft: '12px',
-              cursor: 'pointer',
-            }}
-          />
-        </Badge>
-      </Popover>
-      {/* <Dropdown menu={{ items: avatarItems }} placement="bottomRight" arrow>
-        <Badge count={unreadMsgcount}>
-          <Avatar
-            src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
-            style={{
-              backgroundColor: '#f56a00',
-              marginLeft: '12px',
-              cursor: 'pointer',
-            }}
-          />
-        </Badge>
-      </Dropdown> */}
-    </>
-  );
-};
+const { Content } = Layout;
+
 const Index: React.FC<Iprops> = ({
   avatarItems,
   routes: menus,
   projectName,
-  home = '/',
-  isShowHeader,
+  isShowHeader = false,
   unreadMsgcount,
   children,
   isRawData = false,
   extraRender, //设置处额外的操作区域
   themeMenu = 'dark',
   headerStyle = { background: '#fff' }, //头部的背景色
+  themeColor = '#001629',
 }) => {
   console.log('我被渲染了吗？');
   // 获取到所有的菜单数据进行处理
@@ -177,13 +39,10 @@ const Index: React.FC<Iprops> = ({
 
   const countDownTimer = useRef<any>(null); // 倒计时标记
   // const [timeView] = useState<any>(null); // 倒计时显示
-  const connectInfo = (window.navigator as any).connection; //网络信息
 
   const {
     token: { borderRadiusLG },
   } = theme.useToken();
-  // const [themeMenu] = useState<MenuType>('dark');
-  const [themeColor] = useState('#001629'); //切换headers主题
 
   const [collapsed, setCollapsed] = useState(false); //菜单收起展开
   // const { path, title, id } = useRoutes();
@@ -255,101 +114,30 @@ const Index: React.FC<Iprops> = ({
     };
   }, []);
 
-  function itemRender(route: any, params: any, routes: any, paths: string[]) {
-    const last = routes.indexOf(route) === routes.length - 1;
-    return last ? (
-      <span>{route.title}</span>
-    ) : (
-      <Link to={paths.join('/')}>{route.title}</Link>
-    );
-  }
   return (
     <Layout>
       <Layout>
         {/* 左侧菜单路由 */}
-        <Sider
-          className={
-            themeMenu === 'light' ? 'sider-area-menu' : 'sider-area-menu-dark'
-          }
-          trigger={null}
-          collapsible
+        <LeftMenu
           collapsed={collapsed}
-        >
-          {/* 标题的展开收起，收起展示图标 */}
-          <div className="logo">
-            <div>{collapsed ? <UserOutlined /> : projectName}</div>
-          </div>
-          <SideBarRender menus={routes} theme={themeMenu} />
-        </Sider>
+          themeMenu={themeMenu}
+          routes={routes}
+          projectName={projectName}
+        />
         {/* 右侧内容区 */}
         <Layout style={{ background: '#f5f5f5' }}>
-          {isShowHeader && (
-            <Header
-              style={{
-                background: themeColor,
-                // display: 'none',
-              }}
-              className="allHeaderInfo"
-            >
-              <div className="settings">
-                {/* 是否收起菜单 */}
-                <Button
-                  type="text"
-                  icon={
-                    collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />
-                  }
-                  onClick={() => setCollapsed(!collapsed)}
-                  style={{
-                    fontSize: '20px',
-                    width: 20,
-                    height: 64,
-                    color: '#fff',
-                  }}
-                />
-                <div className="onlineInfo">
-                  <span>网络状态：{connectInfo.effectiveType}</span>
-                  <span>延迟：{connectInfo.rtt}ms</span>
-                  <span>带宽：{connectInfo.downlink} Mb/s</span>
-                </div>
-                {/* 右侧额外的操作区域 */}
-                {extraRender && <div>{extraRender}</div>}
-                <Setting
-                  style={{ color: '#fff' }}
-                  avatarItems={avatarItems}
-                  unreadMsgcount={unreadMsgcount}
-                />
-              </div>
-            </Header>
-          )}
-          <div style={headerStyle}>
-            <div className="settings-right">
-              <Breadcrumb
-                style={{ padding: '4px 12px' }}
-                items={breadcrumbItems}
-                itemRender={itemRender}
-              />
-              {!isShowHeader && (
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    position: 'absolute',
-                    right: '18px',
-                    top: '18px',
-                  }}
-                >
-                  {/* 右侧额外的操作区域 */}
-                  {extraRender && <div>{extraRender}</div>}
-                  <Setting
-                    avatarItems={avatarItems}
-                    unreadMsgcount={unreadMsgcount}
-                  />
-                </div>
-              )}
-            </div>
-            {/* 打开的路由页签 */}
-            {!isShowHeader && <WjBreadcrumb routes={routes} home={home} />}
-          </div>
+          {/* TODO: */}
+          <RightTopHeader
+            breadcrumbItems={breadcrumbItems}
+            themeColor={themeColor}
+            isShowHeader={isShowHeader}
+            extraRender={extraRender}
+            headerStyle={headerStyle}
+            avatarItems={avatarItems}
+            unreadMsgcount={unreadMsgcount}
+            collapsed={collapsed}
+            setCollapsed={setCollapsed}
+          />
           <Layout style={{ padding: 12 }}>
             <Content
               style={{
