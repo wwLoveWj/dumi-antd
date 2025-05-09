@@ -16,6 +16,19 @@ toc: content
 # 更新日志
 
 
+### [0.0.38](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.25...v0.0.38) (2025-05-09)
+
+
+### Features
+
+* 布局组件Layout和面包屑的更新 ([39a840a](https://github.com/wwLoveWj/dumi-antd/commit/39a840abecf5be7891b1b4b870b3c2f00df0c483))
+* 布局组件Layout和面包屑的更新 ([cee2021](https://github.com/wwLoveWj/dumi-antd/commit/cee2021893dcb7fe479fdef1b505ed928712aba2))
+* 布局组件Layout和面包屑的更新 ([2f1d873](https://github.com/wwLoveWj/dumi-antd/commit/2f1d873198dd9e1f8bbfa934364c1e15a127e883))
+* 关于表单的响应以及主题的样式处理 ([05e09bb](https://github.com/wwLoveWj/dumi-antd/commit/05e09bb94ff2238e1a80062af81e6fd27a70bd6e))
+* 乱七八糟TODO ([fcdc85c](https://github.com/wwLoveWj/dumi-antd/commit/fcdc85c516b440e5d211e3d975d18e3e495e69d9))
+* actions的新增 ([64b806c](https://github.com/wwLoveWj/dumi-antd/commit/64b806cd100bb9cfe34a7b89a088d951840c5ee7))
+* layout界面增加头像方式变更以及面包屑的处理 ([b509419](https://github.com/wwLoveWj/dumi-antd/commit/b5094196db73a99c196168628c8b11d036180bb2))
+
 ### [0.0.30](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.25...v0.0.30) (2024-10-13)
 
 ### [0.0.29](https://github.com/wwLoveWj/dumi-antd/compare/v0.0.25...v0.0.29) (2024-10-13)
