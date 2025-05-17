@@ -6,13 +6,13 @@ import {
   getTagTitle,
 } from 'magical-antd-ui';
 import React, { useEffect, useRef, useState } from 'react';
-import { KeepAlive } from 'react-activation';
+import { AliveScope, KeepAlive } from 'react-activation';
 import { Outlet, useLocation } from 'react-router-dom';
+import { useRouteInfo } from './hooks/useRouteInfo';
 import { Iprops, TagTypes } from './type';
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
 import LeftMenu from './components/BasicComp/LeftMenu';
 import RightTopHeader from './components/HeaderComp';
-import { useRouteInfo } from './hooks/useRouteInfo';
 import './style.less';
 
 const { Content } = Layout;
@@ -29,6 +29,7 @@ const Index: React.FC<Iprops> = ({
   themeMenu = 'dark',
   headerStyle = { background: '#fff' }, //头部的背景色
   themeColor = '#001629',
+  contentHeight = 'calc(100vh - 152px + 64px)'
 }) => {
   console.log('我被渲染了吗？');
   // 获取到所有的菜单数据进行处理
@@ -116,51 +117,53 @@ const Index: React.FC<Iprops> = ({
   }, []);
 
   return (
-    <Layout>
+    <AliveScope>
       <Layout>
-        {/* 左侧菜单路由 */}
-        <LeftMenu
-          collapsed={collapsed}
-          themeMenu={themeMenu}
-          routes={routes}
-          projectName={projectName}
-        />
-        {/* 右侧内容区 */}
-        <Layout style={{ background: '#f5f5f5' }}>
-          {/* TODO: */}
-          <RightTopHeader
-            breadcrumbItems={breadcrumbItems}
-            themeColor={themeColor}
-            isShowHeader={isShowHeader}
-            extraRender={extraRender}
-            headerStyle={headerStyle}
-            avatarItems={avatarItems}
-            unreadMsgcount={unreadMsgcount}
+        <Layout>
+          {/* 左侧菜单路由 */}
+          <LeftMenu
             collapsed={collapsed}
-            setCollapsed={setCollapsed}
+            themeMenu={themeMenu}
+            routes={routes}
+            projectName={projectName}
           />
-          <Layout style={{ padding: 12 }}>
-            <Content
-              style={{
-                margin: 0,
-                // padding: 12, //内部容器的padding
-                minHeight: 280,
-                // background: colorBgContainer,
-                borderRadius: borderRadiusLG,
-                // background: 'yellow',
-                // 高度需要减去headers、面包屑这些
-                height: 'calc(100vh - 152px + 64px)',
-                overflow: 'auto',
-              }}
-            >
-              <KeepAlive id={id} name={path} tabName={title}>
-                {children ? children : <Outlet />}
-              </KeepAlive>
-            </Content>
+          {/* 右侧内容区 */}
+          <Layout style={{ background: '#f5f5f5' }}>
+            {/* TODO: */}
+            <RightTopHeader
+              breadcrumbItems={breadcrumbItems}
+              themeColor={themeColor}
+              isShowHeader={isShowHeader}
+              extraRender={extraRender}
+              headerStyle={headerStyle}
+              avatarItems={avatarItems}
+              unreadMsgcount={unreadMsgcount}
+              collapsed={collapsed}
+              setCollapsed={setCollapsed}
+            />
+            <Layout style={{ padding: 12 }}>
+              <Content
+                style={{
+                  margin: 0,
+                  // padding: 12, //内部容器的padding
+                  minHeight: 280,
+                  // background: colorBgContainer,
+                  borderRadius: borderRadiusLG,
+                  // background: 'yellow',
+                  // 高度需要减去headers、面包屑这些
+                  height: contentHeight,
+                  overflow: 'auto',
+                }}
+              >
+                 <KeepAlive id={id} name={path} tabName={title}>
+                    <Outlet />
+                  </KeepAlive>
+              </Content>
+            </Layout>
           </Layout>
         </Layout>
       </Layout>
-    </Layout>
+    </AliveScope>
   );
 };
 
