@@ -106,9 +106,11 @@ function BasicMenu({
       selectedKeys={saveKeyPath}
       openKeys={stateOpenKeys}
       style={{
-        height: `calc(100% - 60px)`,
+        height: `calc(100vh - 60px)`,
         borderRight: 0,
         background: 'transparent',
+        overflowY: "auto",
+        scrollbarWidth: "none",
       }}
       onOpenChange={onOpenChange}
       onSelect={onSelectMenu}
