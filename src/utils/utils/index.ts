@@ -74,3 +74,20 @@ export const isChildPage = (routes: TagTypes[]) => {
   });
   return isChild;
 };
+
+export const guid = () => {
+  return 'xxxxxxxx-xxxx-6xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    let r = (Math.random() * 16) | 0,
+      v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+};
+
+export function getCookie(name: string): string {
+  const reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
+  const arr = document.cookie.match(reg);
+  if (arr) {
+    return unescape(arr[2]);
+  }
+  return '';
+}
