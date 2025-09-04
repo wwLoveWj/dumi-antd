@@ -1,5 +1,5 @@
 export type MenuType = 'light' | 'dark';
-
+import type { ReactElement } from 'react';
 /**
  * 菜单的配置项，用于动态渲染：
  *  key: 唯一标志
@@ -43,7 +43,7 @@ export interface Iprops {
    * 项目名
    * @default "项目模板"
    */
-  projectName: string;
+  projectName?: string | ReactElement;
   /**
    * 路由配置
    * @default []

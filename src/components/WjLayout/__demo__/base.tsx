@@ -41,7 +41,6 @@ export default function Index() {
   return (
     <div>
       <WjLayout
-        projectName="667ww"
         isRawData={true}
         avatarItems={avatarItems}
         routes={[

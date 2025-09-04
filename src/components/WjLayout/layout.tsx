@@ -21,7 +21,7 @@ const { Content } = Layout;
 const Index: React.FC<Iprops> = ({
   avatarItems,
   routes: menus,
-  projectName,
+  projectName = '模板项目',
   isShowHeader = false,
   unreadMsgcount = 0,
   isRawData = false,
