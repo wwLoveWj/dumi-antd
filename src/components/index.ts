@@ -1,4 +1,5 @@
 // src/index.ts
+export { default as WjBasicInput } from './BasicInput';
 export { default as Button } from './Button';
 export { default as NotFound } from './notFound';
 export { default as PrimaryButton } from './PrimaryButton';
@@ -8,13 +9,15 @@ export { default as WjActionButton } from './WjActionButton';
 export { default as WjActions } from './WjActions';
 export type { ItemsProps, WjActionsProps } from './WjActions';
 export { default as WjBreadcrumb } from './WjBreadcrumb';
-export { default as MsConfigProvider } from './WjConfigProvider';
+export { default as WjConfigProvider } from './WjConfigProvider';
 export { default as WjCopy } from './WjCopy';
 export { default as WjDrawer } from './WjDrawer';
 export type { WjDrawerProps } from './WjDrawer';
 // export { default as WjForm } from './WjForm';
-export { default as WjLayout, useRouteInfo } from './WjLayout';
-export { default as MsModal } from './WjModal';
+export { default as WjLayout } from './WjLayout';
+export { default as WjModal } from './WjModal';
 export { default as WjRadio } from './WjRadio';
 export type { RadioOptionType } from './WjRadio';
 // export { default as WjTable } from './WjTable';
+export { default as WjResizable } from './WjResizable';
+export type { WjResizablePorps } from './WjResizable';

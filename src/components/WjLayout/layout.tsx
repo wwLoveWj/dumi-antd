@@ -23,13 +23,12 @@ const Index: React.FC<Iprops> = ({
   projectName,
   isShowHeader = false,
   unreadMsgcount = 0,
-  children,
   isRawData = false,
   extraRender, //设置处额外的操作区域
   themeMenu = 'dark',
   headerStyle = { background: '#fff' }, //头部的背景色
   themeColor = '#001629',
-  contentHeight = 'calc(100vh - 152px + 64px)'
+  contentHeight = 'calc(100vh - 152px + 64px)',
 }) => {
   console.log('我被渲染了吗？');
   // 获取到所有的菜单数据进行处理
@@ -123,6 +122,7 @@ const Index: React.FC<Iprops> = ({
           {/* 左侧菜单路由 */}
           <LeftMenu
             collapsed={collapsed}
+            setCollapsed={setCollapsed}
             themeMenu={themeMenu}
             routes={routes}
             projectName={projectName}
@@ -155,9 +155,9 @@ const Index: React.FC<Iprops> = ({
                   overflow: 'auto',
                 }}
               >
-                 <KeepAlive id={id} name={path} tabName={title}>
-                    <Outlet />
-                  </KeepAlive>
+                <KeepAlive id={id} name={path} tabName={title}>
+                  <Outlet />
+                </KeepAlive>
               </Content>
             </Layout>
           </Layout>

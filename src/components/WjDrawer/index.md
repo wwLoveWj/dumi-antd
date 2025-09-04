@@ -11,7 +11,7 @@ demo:
 
 # WjDrawer - 抽屉
 
-WjDrawer 组件的主要目的是为了实现代码逻辑的模块化与解耦，新增底部确认和取消按钮与MsModal保持统一，使用场景和 Antd Drawer 保持一致。
+WjDrawer 组件的主要目的是为了实现代码逻辑的模块化与解耦，新增底部确认和取消按钮与WjModal保持统一，使用场景和 Antd Drawer 保持一致。
 
 
 ## 何时使用

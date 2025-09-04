@@ -1,5 +1,11 @@
-import { UserOutlined } from '@ant-design/icons';
-import { Layout } from 'antd';
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+import { useControllableValue } from 'ahooks';
+import { Button, Layout } from 'antd';
+import type { ReactElement } from 'react';
 import React from 'react';
 import { MenuType, TagTypes } from '../../type';
 import BasicMenu from './BasicMenu';
@@ -10,7 +16,7 @@ export default function LeftMenu(props: {
    * 项目名
    * @default "项目模板"
    */
-  projectName: string;
+  projectName: string | ReactElement;
   /**
    * 路由配置
    * @default []
@@ -19,8 +25,11 @@ export default function LeftMenu(props: {
   themeMenu: MenuType;
   collapsed: boolean;
 }) {
-  const { routes, projectName, themeMenu, collapsed } = props;
-
+  const { routes, projectName, themeMenu } = props;
+  const [collapsed, setCollapsed] = useControllableValue(props, {
+    valuePropName: 'collapsed',
+    trigger: 'setCollapsed',
+  });
   return (
     <Sider
       className={
@@ -34,7 +43,27 @@ export default function LeftMenu(props: {
       <div className="logo">
         <div>{collapsed ? <UserOutlined /> : projectName}</div>
       </div>
-      <BasicMenu menus={routes} theme={themeMenu} />
+      <BasicMenu menus={routes} theme={themeMenu} collapsed={collapsed} />
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {/* 是否收起菜单 */}
+        <Button
+          type="text"
+          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          onClick={() => setCollapsed(!collapsed)}
+          style={{
+            fontSize: '20px',
+            width: 20,
+            height: 64,
+            color: '#fff',
+          }}
+        />
+      </div>
     </Sider>
   );
 }

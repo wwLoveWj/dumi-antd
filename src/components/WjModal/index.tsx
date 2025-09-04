@@ -37,10 +37,10 @@ type MsModalComponent = ComponentType<Omit<MsModalProps, 'useModal'>> & {
   OpenModal: typeof OpenModal;
 } & typeof Modal;
 
-const MsModal = InternalMsModal as unknown as MsModalComponent;
+const WjModal = InternalMsModal as unknown as MsModalComponent;
 
-MsModal.useOpen = useOpen;
-MsModal.useModal = ((...props: any) => {
+WjModal.useOpen = useOpen;
+WjModal.useModal = ((...props: any) => {
   const modal = (useModal as any).apply(props);
   const modalProps = antdModal(modal);
   const onClose = modalProps.onCancel;
@@ -51,19 +51,19 @@ MsModal.useModal = ((...props: any) => {
   return modal;
 }) as any;
 
-MsModal.info = Modal.info;
-MsModal.success = Modal.success;
-MsModal.warning = Modal.warning;
-MsModal.error = Modal.error;
-MsModal.destroyAll = Modal.destroyAll;
-MsModal.OpenModal = OpenModal;
+WjModal.info = Modal.info;
+WjModal.success = Modal.success;
+WjModal.warning = Modal.warning;
+WjModal.error = Modal.error;
+WjModal.destroyAll = Modal.destroyAll;
+WjModal.OpenModal = OpenModal;
 
-MsModal.create = NiceModal.create;
-MsModal.open = NiceModal.show;
-MsModal.close = NiceModal.hide;
-MsModal.destroy = NiceModal.remove;
+WjModal.create = NiceModal.create;
+WjModal.open = NiceModal.show;
+WjModal.close = NiceModal.hide;
+WjModal.destroy = NiceModal.remove;
 
-export default MsModal;
+export default WjModal;
 
 {
   /* <code src="./__demo__/promise.tsx"></code>

@@ -11,6 +11,7 @@ const { SubMenu } = Menu; // 子菜单
 function BasicMenu({
   menus,
   theme,
+  collapsed,
 }: {
   /**
    * 菜单路由配置
@@ -20,6 +21,7 @@ function BasicMenu({
    * 主题颜色
    */
   theme: MenuType;
+  collapsed: boolean;
 }) {
   const [saveKeyPath, setSaveKeyPath] = useState<string[]>([]); //存储选中的菜单路径集合
   const [stateOpenKeys, setStateOpenKeys] = useState<string[]>([]); //存储打开的子菜单集合
@@ -109,11 +111,12 @@ function BasicMenu({
         height: `calc(100vh - 60px)`,
         borderRight: 0,
         background: 'transparent',
-        overflowY: "auto",
-        scrollbarWidth: "none",
+        overflowY: 'auto',
+        scrollbarWidth: 'none',
       }}
       onOpenChange={onOpenChange}
       onSelect={onSelectMenu}
+      inlineCollapsed={collapsed}
     >
       {getMenuItem(menus)}
     </Menu>

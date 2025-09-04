@@ -4,10 +4,10 @@
  */
 
 import { Button } from 'antd';
-import { MsModal } from 'magical-antd-ui';
+import { WjModal } from 'magical-antd-ui';
 import React from 'react';
-const MyModal = MsModal.create(() => {
-  const modal = MsModal.useModal();
+const MyModal = WjModal.create(() => {
+  const modal = WjModal.useModal();
 
   const renderFooter = () => {
     return (
@@ -19,7 +19,7 @@ const MyModal = MsModal.create(() => {
     );
   };
   return (
-    <MsModal
+    <WjModal
       type="devops"
       titleContent={'标题节点'}
       leftContent={'左侧节点'}
@@ -30,14 +30,14 @@ const MyModal = MsModal.create(() => {
       <p>一些描述...</p>
       <p>一些描述...</p>
       <p>一些描述...</p>
-    </MsModal>
+    </WjModal>
   );
 });
 
 export default () => {
   return (
     <>
-      <Button onClick={() => MsModal.open(MyModal)}>打开</Button>
+      <Button onClick={() => WjModal.open(MyModal)}>打开</Button>
     </>
   );
 };

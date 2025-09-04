@@ -1,5 +1,5 @@
 ---
-title: MsModal - 弹窗
+title: WjModal - 弹窗
 toc: content
 group:
   title: 反馈
@@ -9,26 +9,26 @@ demo:
   cols: 2
 ---
 
-# MsModal - 弹窗
+# WjModal - 弹窗
 
-MsModal 组件的主要目的是为了实现代码逻辑的模块化与解耦，使用场景和 Antd Modal 保持一致。
+WjModal 组件的主要目的是为了实现代码逻辑的模块化与解耦，使用场景和 Antd Modal 保持一致。
 
 ## 何时使用
 
-需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 MsModal 在当前页面正中打开一个浮层，承载相应的操作。
+需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 WjModal 在当前页面正中打开一个浮层，承载相应的操作。
 
-另外当需要一个简洁的确认框询问用户时，可以使用 [MsConfirm](/components/ms-confirm)。
+另外当需要一个简洁的确认框询问用户时，可以使用 [WjConfirm](/components/wj-confirm)。
 
 ## 注意
 
-在使用时需要在umi项目的入口文件 app.ts 中，为其入口元素包裹上 MsConfigProvider：
+在使用时需要在umi项目的入口文件 app.ts 中，为其入口元素包裹上 WjConfigProvider：
 ```
-import { MsConfigProvider } from "magical-antd-ui";
-<MsConfigProvider>
+import { WjConfigProvider } from "magical-antd-ui";
+<WjConfigProvider>
   <ConfigProvider prefixCls={Package.name + "-ant"} locale={zhCN}>
     {container}
   </ConfigProvider>
-</MsConfigProvider>
+</WjConfigProvider>
 ```
 
 ## 代码演示
@@ -36,11 +36,11 @@ import { MsConfigProvider } from "magical-antd-ui";
 
 
 :::info{title=使用规范}
-统一使用 MsModal.open 方式，弹窗都要抽离成单独的组件，组件命名规则遵循：**XxxModal**
+统一使用 WjModal.open 方式，弹窗都要抽离成单独的组件，组件命名规则遵循：**XxxModal**
 :::
 <code src="./__demo__/base.tsx"></code>
 
-<code src="./__demo__/devopsModal.tsx"></code>
+<code src="./__demo__/wjModal.tsx"></code>
 
 
 ## API
@@ -60,21 +60,21 @@ import { MsConfigProvider } from "magical-antd-ui";
 
 ### create
 
-创建一个可以用 `MsModal.open` 打开的弹窗组件，create 接受一个自定义弹窗组件，返回一个可用于 `MsModal.open` 调用的组件，自定义弹窗组件的参数将作为函数调用的参数。
+创建一个可以用 `WjModal.open` 打开的弹窗组件，create 接受一个自定义弹窗组件，返回一个可用于 `WjModal.open` 调用的组件，自定义弹窗组件的参数将作为函数调用的参数。
 
-**重点**：必须在自定义弹窗组件实现 `MsModal.useModal` 并将返回的 `modal.props` 与 `MsModal` 组件绑定，才能实现 `MsModal.open` 的调用。
+**重点**：必须在自定义弹窗组件实现 `WjModal.useModal` 并将返回的 `modal.props` 与 `WjModal` 组件绑定，才能实现 `WjModal.open` 的调用。
 
 ```tsx | pure
-const MyModal = MsModal.create((props: { title: string }) => {
+const MyModal = WjModal.create((props: { title: string }) => {
   const { title } = props;
-  const modal = MsModal.useModal();
+  const modal = WjModal.useModal();
 
   return (
-    <MsModal {...modal.props} title={title} />
+    <WjModal {...modal.props} title={title} />
   );
 })
 
-MsModal.open(MyModal, {title: "传递参数"});
+WjModal.open(MyModal, {title: "传递参数"});
 
 ```
 
@@ -83,7 +83,7 @@ MsModal.open(MyModal, {title: "传递参数"});
 
 | 参数    | 说明     | 类型                          |
 | ------- | -------- | ----------------------------- |
-|props|弹窗参数，将它传给`MsModal`组件，然后用下面的方法可以控制弹窗| [MsModalProps](/components/ms-modal#api) |
+|props|弹窗参数，将它传给`WjModal`组件，然后用下面的方法可以控制弹窗| [WjModalProps](/components/wj-modal#api) |
 |open|打开弹窗|`(args?: Props) => Promise`|
 |close|关闭弹窗|`() => Promise`|
 |destroy|销毁弹窗|`() => void`|

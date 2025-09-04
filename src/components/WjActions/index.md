@@ -1,5 +1,5 @@
 ---
-title: MsActions - 操作按钮
+title: WjActions - 操作按钮
 toc: content
 group:
   title: 操作
@@ -9,13 +9,13 @@ demo:
   cols: 2
 ---
 
-# MsActions - 操作按钮
+# WjActions - 操作按钮
 
 ## 何时使用
 
-MsActions：表格的操作列，表格批量操作按钮。
+WjActions：表格的操作列，表格批量操作按钮。
 
-MsActions.Button: 根据业务场景选择性使用。
+WjActions.Button: 根据业务场景选择性使用。
 
 ## 代码演示
 
@@ -30,7 +30,7 @@ MsActions.Button: 根据业务场景选择性使用。
 
 <!-- <code src="./__demo__/table.tsx"></code> -->
 
-## MsActions
+## WjActions
 
 | 参数        | 说明                                             | 类型             | 默认值 |
 | ----------- | ------------------------------------------------ | ---------------- | ------ |
@@ -56,7 +56,7 @@ MsActions.Button: 根据业务场景选择性使用。
 | disabled | 是否禁用 | `boolean`   | -      |
 | content  | 禁用文本 | `ReactNode` | -      |
 
-## MsActionButton
+## WjActionsButton
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

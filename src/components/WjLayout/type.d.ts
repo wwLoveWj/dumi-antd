@@ -70,6 +70,7 @@ export interface Iprops {
   themeMenu?: MenuType;
   headerStyle?: any; //头部样式
   themeColor?: string;
+  contentHeight?: string | number;
 }
 
 // 头部的props类型

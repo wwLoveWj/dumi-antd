@@ -13,7 +13,7 @@ const SIZE_WIDTH_MAP = {
   large: 900,
 };
 
-const MsModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
+const WjModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
   console.log(props);
   const {
     destroyOnClose = true,
@@ -76,7 +76,7 @@ const MsModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
       }
     : {};
 
-  // MsModal 默认配置
+  // WjModal 默认配置
   const modalPorps = {
     width: _width,
     open: open,
@@ -124,4 +124,4 @@ const MsModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
   );
 });
 
-export default MsModal;
+export default WjModal;

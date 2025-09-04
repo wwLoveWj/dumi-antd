@@ -1,4 +1,8 @@
-import { LoginOutlined, UserOutlined } from '@ant-design/icons';
+import {
+  InsertRowLeftOutlined,
+  LoginOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import { WjLayout } from 'magical-antd-ui';
 import React from 'react';
 export default function Index() {
@@ -57,6 +61,7 @@ export default function Index() {
                 title: '组件',
                 path: '/components/wj-layout',
                 // icon: SendOutlined,
+                icon: InsertRowLeftOutlined,
                 component: '@/pages/docs/components',
                 routes: [
                   {
@@ -79,14 +84,14 @@ export default function Index() {
               {
                 key: 'start',
                 title: '开始',
-                path: '/start',
+                path: '/components',
                 // icon: OpenAIOutlined,
                 component: '@/pages/docs/start',
               },
               {
                 key: 'demo',
                 title: '示例',
-                path: '/demo',
+                path: '/components/primary-button',
                 // icon: OpenAIOutlined,
                 component: './demo/index',
               },

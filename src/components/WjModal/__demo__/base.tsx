@@ -5,24 +5,24 @@
  */
 
 import { Button } from 'antd';
-import { MsModal } from 'magical-antd-ui';
+import { WjModal } from 'magical-antd-ui';
 import React from 'react';
 
-const MyModal = MsModal.create(() => {
-  const modal = MsModal.useModal();
+const MyModal = WjModal.create(() => {
+  const modal = WjModal.useModal();
   return (
-    <MsModal {...modal.props} title={'弹窗标题'}>
+    <WjModal {...modal.props} title={'弹窗标题'}>
       <p>一些描述...</p>
       <p>一些描述...</p>
       <p>一些描述...</p>
-    </MsModal>
+    </WjModal>
   );
 });
 
 export default () => {
   return (
     <>
-      <Button onClick={() => MsModal.open(MyModal)}>打开</Button>
+      <Button onClick={() => WjModal.open(MyModal)}>打开</Button>
     </>
   );
 };

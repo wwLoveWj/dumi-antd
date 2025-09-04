@@ -1,6 +1,6 @@
 import {useOutlet} from 'dumi';
 import {ConfigProvider} from "antd";
-import {MsConfigProvider} from "magical-antd-ui"
+import {WjConfigProvider} from "magical-antd-ui"
 import zhCN from 'antd/es/locale/zh_CN';
 // import moment from 'moment';
 // import 'moment/locale/zh-cn';
@@ -43,9 +43,9 @@ function GlobalLayout(){
     }
   },[location.pathname])
 
-  return <MsConfigProvider>
-        <ConfigProvider locale={zhCN}>{outlet}</ConfigProvider>
-    </MsConfigProvider>
+  return <WjConfigProvider>
+        <ConfigProvider locale={zhCN} >{outlet}</ConfigProvider>
+    </WjConfigProvider>
 }
 
 

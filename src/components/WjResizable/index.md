@@ -1,5 +1,5 @@
 ---
-title: MsResizable - 拖动容器宽度
+title: WjResizable - 拖动容器宽度
 description: 用于实现界面容器拖动调整大小。
 toc: content
 order: 3
