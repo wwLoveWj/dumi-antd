@@ -23,6 +23,7 @@ export default defineConfig({
       { title: '设计', link: '/design' },
       { title: '规范', link: '/standard' },
       { title: '快速上手', link: '/start' },
+      { title: '工具', link: '/tools' },
       { title: '组件', link: '/components' }, // components会默认自动对应到src文件夹
       { title: '更新记录', link: '/version/changelog' },
     ],
@@ -35,7 +36,7 @@ export default defineConfig({
   publicPath: `/${repo}/`,
   styles: [
     `.dumi-default-header-left {
-      width: 220px !important;
+      width: 250px !important;
    }`,
     `.dumi-vite-doc-layout{
       margin: 0 20px !important;}`,
@@ -72,6 +73,7 @@ export default defineConfig({
       { type: 'component', dir: 'src/hooks' },
       { type: 'component', dir: 'src/design' },
       { type: 'component', dir: 'src/utils' },
+      { type: 'tools', dir: 'src/tools' },
     ],
   },
   plugins: ['umi-plugin-keep-alive'],

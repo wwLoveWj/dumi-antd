@@ -57,12 +57,17 @@ export default function LeftMenu(props: {
         {/* 是否收起菜单 */}
         <Button
           type="text"
-          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          icon={
+            collapsed ? (
+              <MenuUnfoldOutlined style={{ fontSize: '16px' }} />
+            ) : (
+              <MenuFoldOutlined style={{ fontSize: '16px' }} />
+            )
+          }
           onClick={() => setCollapsed(!collapsed)}
           style={{
-            fontSize: '20px',
             width: '100%',
-            height: 64,
+            height: 50,
             color: themeMenu === 'light' ? '#000' : '#fff',
           }}
         />
