@@ -84,7 +84,7 @@ export default function Index() {
               {
                 key: 'start',
                 title: '开始',
-                path: '/components',
+                path: '/components/wj-layout',
                 // icon: OpenAIOutlined,
                 component: '@/pages/docs/start',
               },

@@ -38,10 +38,13 @@ export default function LeftMenu(props: {
       trigger={null}
       collapsible
       collapsed={collapsed}
+      style={{ background: themeMenu === 'light' ? '#fff' : '#000' }}
     >
       {/* 标题的展开收起，收起展示图标 */}
       <div className="logo">
-        <div>{collapsed ? <UserOutlined /> : projectName}</div>
+        <div style={{ color: themeMenu === 'dark' ? '#fff' : '#000' }}>
+          {collapsed ? <UserOutlined /> : projectName}
+        </div>
       </div>
       <BasicMenu menus={routes} theme={themeMenu} collapsed={collapsed} />
       <div
@@ -58,9 +61,9 @@ export default function LeftMenu(props: {
           onClick={() => setCollapsed(!collapsed)}
           style={{
             fontSize: '20px',
-            width: 20,
+            width: '100%',
             height: 64,
-            color: '#fff',
+            color: themeMenu === 'light' ? '#000' : '#fff',
           }}
         />
       </div>

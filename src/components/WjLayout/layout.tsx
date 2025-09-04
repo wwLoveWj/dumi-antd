@@ -1,5 +1,6 @@
 import { HomeOutlined, LaptopOutlined } from '@ant-design/icons';
-import { Layout, theme } from 'antd';
+import type { MenuTheme } from 'antd';
+import { Layout, Switch, theme } from 'antd';
 import {
   getAllNodes,
   // getCurrentTime,
@@ -25,7 +26,7 @@ const Index: React.FC<Iprops> = ({
   unreadMsgcount = 0,
   isRawData = false,
   extraRender, //设置处额外的操作区域
-  themeMenu = 'dark',
+  themeMenu: menuColor = 'dark',
   headerStyle = { background: '#fff' }, //头部的背景色
   themeColor = '#001629',
   contentHeight = 'calc(100vh - 152px + 64px)',
@@ -44,14 +45,17 @@ const Index: React.FC<Iprops> = ({
   const {
     token: { borderRadiusLG },
   } = theme.useToken();
-
+  const [themeMenu, setTheme] = useState<MenuTheme>(menuColor);
   const [collapsed, setCollapsed] = useState(false); //菜单收起展开
   const { path, title, id } = useRouteInfo(routes);
   const { pathname } = useLocation();
   const [breadcrumbItems, setBreadcrumbItems] = useState<
     { title: any; path: string; className?: string }[]
   >([]); //面包屑的配置项
-
+  // 更改菜单主题
+  const changeTheme = (value: boolean) => {
+    setTheme(value ? 'dark' : 'light');
+  };
   // 路由变化设置选择项
   const initSetTabs = (path: string) => {
     const addBreadcrumbItem = (path: string, title: React.ReactNode) => ({
@@ -116,54 +120,64 @@ const Index: React.FC<Iprops> = ({
   }, []);
 
   return (
-    <AliveScope>
-      <Layout>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ marginBottom: '8px' }}>
+        <Switch
+          checked={themeMenu === 'dark'}
+          onChange={changeTheme}
+          checkedChildren="Dark"
+          unCheckedChildren="Light"
+        />
+      </div>
+      <AliveScope>
         <Layout>
-          {/* 左侧菜单路由 */}
-          <LeftMenu
-            collapsed={collapsed}
-            setCollapsed={setCollapsed}
-            themeMenu={themeMenu}
-            routes={routes}
-            projectName={projectName}
-          />
-          {/* 右侧内容区 */}
-          <Layout style={{ background: '#f5f5f5' }}>
-            {/* TODO: */}
-            <RightTopHeader
-              breadcrumbItems={breadcrumbItems}
-              themeColor={themeColor}
-              isShowHeader={isShowHeader}
-              extraRender={extraRender}
-              headerStyle={headerStyle}
-              avatarItems={avatarItems}
-              unreadMsgcount={unreadMsgcount}
+          <Layout>
+            {/* 左侧菜单路由 */}
+            <LeftMenu
               collapsed={collapsed}
               setCollapsed={setCollapsed}
+              themeMenu={themeMenu}
+              routes={routes}
+              projectName={projectName}
             />
-            <Layout style={{ padding: 12 }}>
-              <Content
-                style={{
-                  margin: 0,
-                  // padding: 12, //内部容器的padding
-                  minHeight: 280,
-                  // background: colorBgContainer,
-                  borderRadius: borderRadiusLG,
-                  // background: 'yellow',
-                  // 高度需要减去headers、面包屑这些
-                  height: contentHeight,
-                  overflow: 'auto',
-                }}
-              >
-                <KeepAlive id={id} name={path} tabName={title}>
-                  <Outlet />
-                </KeepAlive>
-              </Content>
+            {/* 右侧内容区 */}
+            <Layout style={{ background: '#f5f5f5' }}>
+              {/* TODO: */}
+              <RightTopHeader
+                breadcrumbItems={breadcrumbItems}
+                themeColor={themeColor}
+                isShowHeader={isShowHeader}
+                extraRender={extraRender}
+                headerStyle={headerStyle}
+                avatarItems={avatarItems}
+                unreadMsgcount={unreadMsgcount}
+                collapsed={collapsed}
+                setCollapsed={setCollapsed}
+              />
+              <Layout style={{ padding: 12 }}>
+                <Content
+                  style={{
+                    margin: 0,
+                    // padding: 12, //内部容器的padding
+                    minHeight: 280,
+                    // background: colorBgContainer,
+                    borderRadius: borderRadiusLG,
+                    // background: 'yellow',
+                    // 高度需要减去headers、面包屑这些
+                    height: contentHeight,
+                    overflow: 'auto',
+                  }}
+                >
+                  <KeepAlive id={id} name={path} tabName={title}>
+                    <Outlet />
+                  </KeepAlive>
+                </Content>
+              </Layout>
             </Layout>
           </Layout>
         </Layout>
-      </Layout>
-    </AliveScope>
+      </AliveScope>
+    </div>
   );
 };
 
