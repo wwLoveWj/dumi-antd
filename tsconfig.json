@@ -4,13 +4,14 @@
     "declaration": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "magical-antd-ui": ["src"],
-      "magical-antd-ui/*": ["src/*", "*"]
+      "magical-antd-ui/*": ["src/*", "*"],
+      "@magical-antd-ui/wj-flow": ["./packages/wj-flow/src"]
     }
   },
-  "include": [".dumirc.ts", "src/**/*"]
+  "include": [".dumirc.ts", "src/**/*", "packages"]
 }

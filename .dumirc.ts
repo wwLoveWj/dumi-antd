@@ -12,6 +12,10 @@ export default defineConfig({
     '@magical-antd-ui': path?.join(__dirname, 'src'),
     '@magical-antd-ui/hooks': path?.join(__dirname, 'src/hooks'),
     '@magical-antd-ui/utils': path?.join(__dirname, 'src/utils'),
+    '@magical-antd-ui/wj-flow': path.resolve(
+      __dirname,
+      './packages/wj-flow/src',
+    ),
   },
   themeConfig: {
     name: 'magical-antd-ui',
