@@ -21,9 +21,23 @@ import type {
 import type React from 'react';
 import type { ReactNode } from 'react';
 import type { MsDrawerProps } from '../MsDrawer';
-import type { ComponentsType } from '../MsField/config';
 import type { MsFiledRequestColumnType } from '../MsField/hooks/useFieldRequest/types';
 import type { MsModalProps } from '../MsModal';
+import { ComponentsType } from './utils/config';
+/**
+ * 表单的配置类型
+ */
+export type WjFormColumnsPropsType<D = any> = {
+  dataIndex?: string;
+  title?: string;
+  valueType?: keyof ComponentsType | string;
+  width?: number | string;
+  fieldProps?:
+    | Record<string, any>
+    | ((form: FormInstance) => Record<string, any>);
+  formItemProps?: FormItemProps<D> | ((form: FormInstance) => FormItemProps<D>);
+  colProps?: { span?: number; style?: object };
+};
 
 /** 缓存枚举Context类型 */
 export type MsFormCacheValueEnumContextType = {
