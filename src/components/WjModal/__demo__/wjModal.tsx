@@ -1,5 +1,5 @@
 /**
- * title: devops创建弹窗
+ * title: wj创建弹窗
  * description:
  */
 
@@ -20,7 +20,7 @@ const MyModal = WjModal.create(() => {
   };
   return (
     <WjModal
-      type="devops"
+      type="wj"
       titleContent={'标题节点'}
       leftContent={'左侧节点'}
       RightContent={'右侧节点'}

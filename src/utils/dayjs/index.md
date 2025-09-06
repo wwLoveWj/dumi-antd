@@ -2,6 +2,7 @@
 category: Utils
 title: 时间格式化 # 组件的标题，会在菜单侧边栏展示
 toc: content # 在页面右侧展示锚点链接
+cover: https://cdn.jsdelivr.net/gh/wwLoveWj/Picture-bed@imgs/images/202509061255872.png
 group: # 分组
   title: 工具函数 # 所在分组的名称
   order: 3 # 分组排序，值越小越靠前

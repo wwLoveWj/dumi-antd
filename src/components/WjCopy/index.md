@@ -3,7 +3,7 @@ title: WjCopy - 复制
 toc: content
 group:
   title: 操作
-cover: /images/wjcopy.png
+cover: https://cdn.jsdelivr.net/gh/wwLoveWj/Picture-bed@imgs/images/202509061248052.png
 ---
 
 ## 基本使用

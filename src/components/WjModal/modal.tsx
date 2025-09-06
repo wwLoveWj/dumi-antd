@@ -1,6 +1,6 @@
 import { CloseOutlined } from '@ant-design/icons';
 import { Card, Modal } from 'antd';
-import { isUndefined } from 'lodash';
+import { isUndefined } from 'lodash-es';
 import { useTrigger } from 'magical-antd-ui';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { InModalDrawerContext } from './contexts/InModal';
@@ -38,7 +38,7 @@ const WjModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
 
   const [okLoading, setOkLoading] = useState(false);
   const [cancelLoading, setCancelLoading] = useState(false);
-  const isDevopsModal = type === 'devops';
+  const isDevopsModal = type === 'wj';
   const _width = width ?? (size && SIZE_WIDTH_MAP[size]);
 
   const handleOk = async () => {

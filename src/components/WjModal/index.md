@@ -1,6 +1,7 @@
 ---
 title: WjModal - 弹窗
 toc: content
+cover: https://cdn.jsdelivr.net/gh/wwLoveWj/Picture-bed@imgs/images/202509061216117.png
 group:
   title: 反馈
   order: 5

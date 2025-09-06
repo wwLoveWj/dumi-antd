@@ -2,6 +2,7 @@
 title: WjDrawer - 抽屉
 toc: content
 order: 2
+cover: https://cdn.jsdelivr.net/gh/wwLoveWj/Picture-bed@imgs/images/202509061216330.png
 group:
   title: 反馈
   order: 5

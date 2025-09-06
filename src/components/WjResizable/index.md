@@ -3,6 +3,7 @@ title: WjResizable - 拖动容器宽度
 description: 用于实现界面容器拖动调整大小。
 toc: content
 order: 3
+cover: https://cdn.jsdelivr.net/gh/wwLoveWj/Picture-bed@imgs/images/202509061212539.png
 group:
   title: 布局
 version: 2.19.0

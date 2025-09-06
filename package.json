@@ -61,10 +61,14 @@
     }
   },
   "dependencies": {
+    "@ant-design/icons": "^6.0.1",
     "ahooks": "^3.8.1",
     "antd": "^5.20.6",
+    "classnames": "^2.5.1",
     "lodash-es": "^4.17.21",
+    "node-notifier": "^10.0.1",
     "qs": "^6.13.0",
+    "rc-util": "^5.44.4",
     "react-activation": "^0.12.4",
     "react-copy-to-clipboard": "^5.1.0",
     "react-schema-render": "^0.0.5",
@@ -93,7 +97,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-less-loader": "^0.2.0",
     "lint-staged": "^13.0.3",
-    "node-notifier": "^10.0.1",
     "prettier": "^2.7.1",
     "prettier-plugin-organize-imports": "^3.0.0",
     "prettier-plugin-packagejson": "^2.2.18",

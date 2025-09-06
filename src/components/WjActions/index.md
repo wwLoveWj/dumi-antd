@@ -4,7 +4,7 @@ toc: content
 group:
   title: 操作
   order: 6
-cover: /images/msactions.png
+cover: https://cdn.jsdelivr.net/gh/wwLoveWj/Picture-bed@imgs/images/202509061248242.png
 demo:
   cols: 2
 ---
