@@ -19,7 +19,7 @@ group: # 分组
 
 <code src="./__demo__/base.tsx">基础用法</code>
 
-## APi
+## API
 
 <!-- 会生成api表格 -->
 

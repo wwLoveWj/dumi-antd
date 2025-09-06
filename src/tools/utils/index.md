@@ -24,7 +24,7 @@ calcTextWidth('计算本文宽度3', '16px', true);
 ```
 <!-- <code src="./__demo__/base.tsx">基础用法</code> -->
 
-## APi
+## API
 
 <!-- 会生成api表格 -->
 
