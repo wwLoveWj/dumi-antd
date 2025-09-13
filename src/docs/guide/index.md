@@ -9,6 +9,138 @@ order: 2
 
 ## 项目结构
 
+该站点使用 `dumi` 组件研发解决方案，打包工具使用的是推荐 `father` 而不是 `webpack`，核心原因是 <a href="https://github.com/umijs/father-next/blob/master/docs/guide/build-mode.md" target="_blank">bundless 构建模式</a>，相关的配置项目请看 <a href="https://d.umijs.org/" target="_blank">dumi 文档</a> 和 <a href="https://github.com/umijs/father-next/blob/master/docs/guide/index.md" target="_blank">father 文档</a>。
+
+代码风格检查，基于 `@umijs/fabric` 的 `eslint` 和 `prettier` 配置，`stylelint` 比较鸡肋就没有使用，`huksy` 提供 git hooks 功能，`lintstaged` 只检查本次 commit 提交的代码。
+
+<Tree>
+  <ul>
+    <li>
+      .dumi
+      <small>dumi框架自动生成</small>
+    </li>
+    <li>
+      .husky
+      <small>git hooks 在各个阶段执行命令的配置</small>
+      <ul>
+        <li>
+          pre-commit
+          <small>git hooks 在 pre-commit 阶段执行命令的配置</small>
+        </li>
+      </ul>
+    </li>
+    <li>
+      .dist
+      <small>文档打包生成文件目录</small>
+    </li>
+    <li>
+      lib
+      <small>组件库打包生成文件目录</small>
+      <ul>
+        <li>
+          esm
+          <small>组件库打包生成的 es module</small>
+        </li>
+        <li>
+          cjs
+          <small>组件库打包生成的 commonjs </small>
+        </li>
+      </ul>
+    </li>
+    <li>
+      public
+      <small>文档打包之后不做处理，直接复制到 dist 目录</small>
+    </li>
+    <li>
+      src
+      <small>dumi框架自动生成</small>
+      <ul>
+        <li>
+          docs
+          <small>站点文档目录，dumi会扫描该目录下的 md 文件生成文档，采用约定式生成路由</small>
+        </li>
+        <li>
+          components
+          <ul>
+            <li>
+            index.ts
+            <small>导出文件，导出 component 及 ts 类型</small>
+            </li>
+          </ul>
+        </li>
+        </li>
+        <li>
+          hooks
+          <ul>
+            <li>
+            index.ts
+            <small>导出文件，导出 hook 及 ts 类型</small>
+            </li>
+          </ul>
+        </li>
+        <li>
+          utils
+          <ul>
+            <li>
+            index.ts
+            <small>导出文件，导出 util 及 ts 类型</small>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      .dumirc.ts
+      <small>dumi配置文件</small>
+    </li>
+    <li>
+      .editorconfig
+    </li>
+    <li>
+      .fatherrc.ts
+      <small>fatherrc配置文件，组件库打包工具，默认使用 bundless 模式</small>
+    </li>
+    <li>
+      .gitattributes
+      <small>git 配置文件，统一末尾换行符为 lf</small>
+    </li>
+    <li>
+      .gitignore
+    </li>
+    <li>
+      .lintstagedrc.js
+      <small>git hooks 提交只检查 staged 文件，不用全项目检查</small>
+    </li>
+    <li>
+      .prettierrc.js
+    </li>
+    <li>
+      .eslintrc.js
+    </li>
+    <li>
+      .prettierignore
+    </li>
+    <li>
+      .tsconfig.json
+      <small>ts 项目配置文件</small>
+    </li>
+    <li>
+      .typing.d.ts
+      <small>整个项目公共类型声明文件</small>
+    </li>
+    <li>
+      .package.json
+    </li>
+    <li>
+      pnpm-lock.yaml
+    </li>
+    <li>
+      .README.md
+    </li>
+
+  </ul>
+</Tree>
+
 ```
 ├── .dumi              dumi框架自动生成
 ├── .husky             git hooks 在各个阶段执行命令的配置

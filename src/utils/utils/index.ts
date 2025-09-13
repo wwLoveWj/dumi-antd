@@ -91,3 +91,18 @@ export function getCookie(name: string): string {
   }
   return '';
 }
+
+// 解析 JSON 字符串，如果失败则返回默认值
+export function parseJson<T>(jsonStr: string = '', defaultValue: T): T {
+  try {
+    const parsed = JSON.parse(jsonStr);
+    return parsed as T;
+  } catch (error) {
+    return defaultValue;
+  }
+}
+
+// 格式化JSON对象
+export const formatJSON = (content: string) => {
+  return JSON.stringify(JSON.parse(content || `{}`), null, 2);
+};

@@ -13,5 +13,5 @@
       "@magical-antd-ui/wj-flow": ["./packages/wj-flow/src"]
     }
   },
-  "include": [".dumirc.ts", "src/**/*", "packages"]
+  "include": [".dumirc.ts", "src/**/*", "packages", "typing.d.ts"]
 }

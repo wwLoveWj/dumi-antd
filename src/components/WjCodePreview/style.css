@@ -1,0 +1,75 @@
+.codeContainer {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  max-width: 800px;
+  border-radius: 8px;
+  overflow: hidden;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.codeContainer h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+.codeContainer pre {
+  margin: 0;
+  padding: 20px;
+  background-color: #282c34;
+  color: #abb2bf;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.codeContainer code {
+  font-family: "Fira Code", "Consolas", monospace;
+  margin-top: 20px;
+  height: 100%;
+}
+.codeContainer .copyBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.codeContainer .copyBtn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.codeContainer .copyBtn:active {
+  transform: scale(0.95);
+}
+.codeContainer .copied {
+  background-color: #28a745;
+}
+.codeContainer .languageLabel {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  padding: 3px 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #ddd;
+  font-size: 12px;
+  font-weight: 500;
+}
+.codeContainer .explanation {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 30px 0;
+}
+.codeContainer .explanation h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
