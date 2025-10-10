@@ -30,6 +30,7 @@ const Index: React.FC<Iprops> = ({
   headerStyle = { background: '#fff' }, //头部的背景色
   themeColor = '#001629',
   contentHeight = 'calc(100vh - 152px + 64px)',
+  isDebugger = false,
 }) => {
   console.log('我被渲染了吗？');
   // 获取到所有的菜单数据进行处理
@@ -121,14 +122,16 @@ const Index: React.FC<Iprops> = ({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div style={{ marginBottom: '8px' }}>
-        <Switch
-          checked={themeMenu === 'dark'}
-          onChange={changeTheme}
-          checkedChildren="Dark"
-          unCheckedChildren="Light"
-        />
-      </div>
+      {isDebugger && (
+        <div style={{ marginBottom: '8px' }}>
+          <Switch
+            checked={themeMenu === 'dark'}
+            onChange={changeTheme}
+            checkedChildren="Dark"
+            unCheckedChildren="Light"
+          />
+        </div>
+      )}
       <AliveScope>
         <Layout>
           <Layout>

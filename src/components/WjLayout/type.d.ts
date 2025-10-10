@@ -71,6 +71,7 @@ export interface Iprops {
   headerStyle?: any; //头部样式
   themeColor?: string;
   contentHeight?: string | number;
+  isDebugger?: boolean; //是否开启主题样式调试
 }
 
 // 头部的props类型
