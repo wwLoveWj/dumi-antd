@@ -108,7 +108,7 @@ function BasicMenu({
       selectedKeys={saveKeyPath}
       openKeys={stateOpenKeys}
       style={{
-        height: `calc(100vh - 60px)`,
+        height: `calc(100vh - 60px - 50px)`,
         borderRight: 0,
         background: 'transparent',
         overflowY: 'auto',

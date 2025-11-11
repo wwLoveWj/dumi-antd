@@ -29,7 +29,8 @@ const Index: React.FC<Iprops> = ({
   themeMenu: menuColor = 'dark',
   headerStyle = { background: '#fff' }, //头部的背景色
   themeColor = '#001629',
-  contentHeight = 'calc(100vh - 152px + 64px)',
+  // contentHeight = 'calc(100vh - 152px + 64px)',
+  contentHeight = 'calc(100vh - 84px)',
   isDebugger = false,
 }) => {
   console.log('我被渲染了吗？');
