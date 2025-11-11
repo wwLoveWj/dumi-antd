@@ -11,7 +11,7 @@ export default (): React.ReactElement => {
   const { getCachingNodes, dropScope, clear, refreshScope } =
     useAliveController();
   const cachingNodesInit = getCachingNodes().filter(
-    (item) => item.name !== '/home',
+    (item) => !['/home', '/']?.includes(item.name || '/'),
   );
   // 首页固定
   const cachingNodes = [

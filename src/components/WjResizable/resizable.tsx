@@ -4,7 +4,7 @@ import { useControllableValue } from 'ahooks';
 import { isBoolean, isObject } from 'lodash-es';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import './index.less';
-import type { WjResizablePorps } from './types.ts';
+import type { WjResizablePorps } from './types';
 
 const WjResizable = (props: WjResizablePorps) => {
   const {

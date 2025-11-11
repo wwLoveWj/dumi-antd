@@ -6,7 +6,6 @@ import {
 import { useControllableValue } from 'ahooks';
 import { Button, Layout } from 'antd';
 import type { ReactElement } from 'react';
-import React from 'react';
 import { MenuType, TagTypes } from '../../type';
 import BasicMenu from './BasicMenu';
 
@@ -24,6 +23,7 @@ export default function LeftMenu(props: {
   routes: TagTypes[];
   themeMenu: MenuType;
   collapsed: boolean;
+  setCollapsed: any;
 }) {
   const { routes, projectName, themeMenu } = props;
   const [collapsed, setCollapsed] = useControllableValue(props, {
