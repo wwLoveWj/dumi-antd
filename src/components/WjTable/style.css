@@ -1,0 +1,15 @@
+.tableContainer {
+  background: pink;
+}
+.tableContainer .tableOperations {
+  margin-bottom: 16px;
+  display: flex;
+}
+.tableContainer .tableLayout {
+  background: var(--art-main-bg-color);
+  padding: 12px;
+}
+.tableContainer .tableLayout .ant-table-thead > tr > th {
+  background: #a3d0fd;
+  color: #666;
+}

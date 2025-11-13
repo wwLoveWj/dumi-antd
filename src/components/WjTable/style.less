@@ -1,0 +1,27 @@
+@ant-prefix: ant;
+
+.tableContainer {
+    background: pink;
+
+    .tableOperations {
+        margin-bottom: 16px;
+        display: flex;
+    }
+
+    .tableLayout {
+        background: var(--art-main-bg-color);
+        padding: 12px;
+
+        .@{ant-prefix}-table-thead>tr>th {
+            background: #a3d0fd;
+            color: #666;
+        }
+
+        // .my-template-umi-ant-table-tbody>tr>td {
+        // padding: 8px 16px;
+        // }
+        // .my-template-umi-ant-table-tbody {
+        //     border: 1px solid #ccc;
+        // }
+    }
+}
