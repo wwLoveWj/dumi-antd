@@ -33,7 +33,7 @@ export const RightSetting = ({
             {avatarItems?.map((item) => (
               <li key={item?.key}>
                 <i>{item?.icon}</i>
-                <span>{item?.label}</span>
+                {item?.label}
               </li>
             ))}
           </ul>
@@ -48,7 +48,10 @@ export const RightSetting = ({
                 margin: '0 12px 0 0',
               }}
             />
-            <span>json brower</span>
+            <div>
+              <p>json brower</p>
+              <span>13245@163.com</span>
+            </div>
           </div>
         }
         placement="bottomRight"

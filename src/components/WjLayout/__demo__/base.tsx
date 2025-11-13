@@ -4,35 +4,34 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { WjLayout } from 'magical-antd-ui';
-import React from 'react';
 export default function Index() {
   // settings的菜单
   const avatarItems = [
     {
       key: '1',
       label: (
-        <a
+        <span
           onClick={() => {
             // history.push('/login');
           }}
         >
           退出登录
-        </a>
+        </span>
       ),
       icon: <LoginOutlined />,
     },
     {
       key: '2',
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
+        <span
+          // target="_blank"
+          // rel="noopener noreferrer"
           onClick={() => {
             // history.push('/center');
           }}
         >
           个人中心
-        </a>
+        </span>
       ),
       icon: <UserOutlined />,
     },
