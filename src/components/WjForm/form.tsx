@@ -2,7 +2,7 @@ import type { FormInstance, FormProps } from 'antd';
 import { Form, notification } from 'antd';
 import { max } from 'lodash-es';
 import { useResponsiveSize } from 'magical-antd-ui';
-import React, {
+import {
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -198,13 +198,13 @@ export default forwardRef<
           label: ishideLabel ? '' : column?.title,
           name: column?.dataIndex,
           ...column?.formItemProps,
-          rules: column?.formItemProps?.rules[0]?.required
+          rules: (column?.formItemProps as any)?.rules[0]?.required
             ? [
                 Object.assign(
                   {
                     message: getPlaceholderTips(column),
                   },
-                  ...column?.formItemProps?.rules,
+                  ...(column?.formItemProps as any)?.rules,
                 ),
               ]
             : undefined,
@@ -223,19 +223,21 @@ export default forwardRef<
 
   const watchConfigFiltersList = (collapsed: boolean) => {
     // 最终展现的收起或展开状态的表单查询配置
-    const configFiltersList = tableSearchColumns.map((column, index) => {
-      const minColumnNumber = max([columnNumber - 1, 1]) ?? 1;
-      if (index >= minColumnNumber && collapsed) {
+    const configFiltersList = tableSearchColumns.map(
+      (column: any, index: number) => {
+        const minColumnNumber = max([columnNumber - 1, 1]) ?? 1;
+        if (index >= minColumnNumber && collapsed) {
+          return {
+            ...column,
+            colProps: { style: { display: 'none' } },
+          };
+        }
         return {
           ...column,
-          colProps: { style: { display: 'none' } },
+          colProps: { span: 24 / columnNumber }, //根据配置的span来计算宽度
         };
-      }
-      return {
-        ...column,
-        colProps: { span: 24 / columnNumber }, //根据配置的span来计算宽度
-      };
-    });
+      },
+    );
     setConfigFilters(configFiltersList);
   };
   // 监听查询项的收起与展开动作

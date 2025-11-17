@@ -9,7 +9,8 @@ import useTableSelection from './hooks/useTableSelection';
 import './style.less';
 import { WjTableProps } from './type';
 
-const WjTable = forwardRef<HTMLDivElement, WjTableProps>((props, ref) => {
+// ForwardedRef<HTMLDivElement>
+const WjTable = forwardRef<any, WjTableProps>((props, ref) => {
   const {
     selectedRowLens = 0,
     title,
@@ -17,8 +18,8 @@ const WjTable = forwardRef<HTMLDivElement, WjTableProps>((props, ref) => {
     params,
     columns,
     dataSource,
-    batchOpertions,
-    noCard,
+    // batchOpertions,
+    // noCard,
     actionRef,
     createBtnOperations,
     onSubmit,
@@ -146,7 +147,7 @@ const WjTable = forwardRef<HTMLDivElement, WjTableProps>((props, ref) => {
         <div style={{ marginBottom: 12 }}>
           <WjForm
             formConfigList={columns as WjFormColumnsPropsType[]}
-            onFinish={(param) => run(param)}
+            onFinish={(param: any) => run(param)}
             successNotify={false}
             formRef={formRef}
           />

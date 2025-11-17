@@ -6,7 +6,7 @@
 import { useUnmount } from 'ahooks';
 import { message, notification } from 'antd';
 import type { FC } from 'react';
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Provider as NiceModalProvider } from '../NiceModal';
 
@@ -18,7 +18,7 @@ const MsConfigContext = createContext<MsConfigType>({});
 
 const { Provider, Consumer } = MsConfigContext;
 
-const MsConfigProvider: FC<MsConfigPropsType> = (props) => {
+const WjConfigProvider: FC<MsConfigPropsType> = (props) => {
   const {
     children,
     iconScriptUrl,
@@ -39,6 +39,6 @@ const MsConfigProvider: FC<MsConfigPropsType> = (props) => {
   );
 };
 
-export { MsConfigProvider, Consumer as MsConfigConsumer, MsConfigContext };
+export { WjConfigProvider, Consumer as MsConfigConsumer, MsConfigContext };
 
-export default MsConfigProvider;
+export default WjConfigProvider;
