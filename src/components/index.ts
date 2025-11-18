@@ -1,6 +1,7 @@
 // src/index.ts
-export { default as WjBasicInput } from './BasicInput';
+// export { default as WjBasicInput } from './BasicInput';
 export { default as Button } from './Button';
+// export { default as WjDraggableTab } from './draggable-tab';
 export { default as NotFound } from './notFound';
 export { default as PrimaryButton } from './PrimaryButton';
 export { default as WjActionButton } from './WjActionButton';
@@ -14,6 +15,7 @@ export { default as WjConfigProvider } from './WjConfigProvider';
 export { default as WjCopy } from './WjCopy';
 export { default as WjDrawer } from './WjDrawer';
 export type { WjDrawerProps } from './WjDrawer';
+export { default as WjField, setField } from './WjField';
 export { WjForm } from './WjForm';
 export type { MsFormColumns, MsFormProps } from './WjForm';
 export { default as WjLayout } from './WjLayout';
@@ -23,3 +25,11 @@ export type { RadioOptionType } from './WjRadio';
 // export { default as WjTable } from './WjTable';
 export { default as WjResizable } from './WjResizable';
 export type { WjResizablePorps } from './WjResizable';
+export { default as WjRichText } from './WjRichText';
+export { default as WjTable } from './WjTable';
+export type {
+  WjTableColumns,
+  WjTableColumnType,
+  WjTableProps,
+  WjTableRefType,
+} from './WjTable';

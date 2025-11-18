@@ -1,0 +1,89 @@
+.ms-click-edit-wrap {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px;
+}
+.ms-click-edit-wrap:hover {
+  background-color: #eceef1;
+  cursor: pointer;
+}
+.ms-click-edit-wrap .ms-click-edit-text {
+  height: 32px;
+  padding: 0 8px;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  line-height: 32px;
+  white-space: nowrap;
+  /*禁止换行*/
+  text-overflow: ellipsis;
+  /*省略号*/
+}
+.ms-click-edit-wrap .ms-click-edit-select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 32px;
+  padding: 0 8px;
+}
+.ms-click-edit-wrap .ms-click-edit-select .select-icon {
+  display: none;
+}
+.ms-click-edit-wrap .ms-click-edit-select > .ms-select-text-ellipsis {
+  overflow: hidden;
+  /*超出部分隐藏*/
+  white-space: nowrap;
+  /*禁止换行*/
+  text-overflow: ellipsis;
+  /*省略号*/
+}
+.ms-click-edit-wrap:hover .ms-click-edit-select .select-icon {
+  display: inline;
+  color: #464f5c;
+}
+.ms-click-edit-wrap .ant-input,
+.ms-click-edit-wrap .ant-select-selector {
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
+.ms-click-edit-wrap .ant-input-affix-wrapper {
+  padding-left: 0px !important;
+}
+.ms-click-in-edit-wrap {
+  background-color: #eceef1;
+}
+.ms-click-in-edit-wrap .ant-input-affix-wrapper-borderless {
+  background-color: #fff !important;
+}
+.ms-click-in-edit-wrap .ant-input-affix-wrapper-borderless > input {
+  height: 22px;
+}
+.ms-click-in-edit-wrap .ant-input-borderless {
+  background-color: #fff !important;
+}
+.ms-click-edit-select-wrap .ant-select-selector {
+  min-height: 48px !important;
+  padding-right: 16px !important;
+  padding-left: 16px !important;
+  background-color: #eceef1 !important;
+  border: none !important;
+}
+.ms-click-edit-select-wrap .ant-select-selector > .ant-select-selection-item,
+.ms-click-edit-select-wrap .ant-select-selector > .ant-select-selection-placeholder {
+  padding-top: 9px !important;
+}
+.ms-click-edit-select-wrap .ant-select-multiple .ant-select-selector > .ant-select-selection-placeholder {
+  padding-top: 0px;
+}
+.user-popover-click-edit {
+  padding-right: 0;
+  padding-left: 0;
+}
+.user-popover-click-edit .ms-click-edit-select {
+  padding-right: 0;
+  padding-left: 0;
+}
+.user-popover-click-edit > .user-popover {
+  padding: 12px 0;
+}

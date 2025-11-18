@@ -1,0 +1,77 @@
+.user-popover .ant-avatar {
+  cursor: pointer;
+}
+.user-popover .ant-avatar-group .ant-avatar-sm .ant-avatar-string {
+  font-size: 12px;
+  line-height: 21px;
+}
+.user-popover .ant-avatar-group .user-avatar:not(:first-child) {
+  margin-left: -4px;
+}
+.user-detail-popover {
+  z-index: 1100;
+  max-width: 300px;
+}
+.user-detail-popover.ant-popover-placement-bottom,
+.user-detail-popover.ant-popover-placement-bottomLeft,
+.user-detail-popover.ant-popover-placement-bottomRight {
+  padding-top: 4px;
+}
+.user-detail-popover.ant-popover-placement-right,
+.user-detail-popover.ant-popover-placement-rightTop,
+.user-detail-popover.ant-popover-placement-rightBottom {
+  padding-left: 4px;
+}
+.user-detail-popover.ant-popover-placement-top,
+.user-detail-popover.ant-popover-placement-topLeft,
+.user-detail-popover.ant-popover-placement-topRight {
+  padding-bottom: 4px;
+}
+.user-detail-popover.ant-popover-placement-left,
+.user-detail-popover.ant-popover-placement-leftTop,
+.user-detail-popover.ant-popover-placement-leftBottom {
+  padding-right: 4px;
+}
+.user-detail-popover .ant-popover-arrow {
+  display: none;
+}
+.user-detail-popover .ant-popover-title {
+  padding: 10px 16px 10px;
+  border-bottom: 0;
+}
+.user-detail-popover .ant-popover-inner-content {
+  padding-top: 8px;
+  padding-bottom: 1px;
+  font-size: 12px;
+}
+.user-detail-popover .ant-popover-inner-content .inner-item {
+  display: flex;
+  margin-bottom: 12px;
+  line-height: 20px;
+}
+.user-detail-popover .ant-popover-inner-content .inner-item label {
+  white-space: nowrap;
+}
+.user-detail-popover .ant-popover-inner-content label {
+  margin-right: 16px;
+  color: #78858f;
+}
+.user-detail-popover .ant-popover-inner-content .item-content {
+  color: #464f5c;
+}
+.user-detail-popover .title-name-box {
+  display: flex;
+}
+.user-detail-popover .title-name-box .user-popover-action {
+  line-height: 36px;
+  visibility: hidden;
+}
+.user-detail-popover .title-name-box .user-avatar-name {
+  font-size: 14px;
+}
+.user-detail-popover .user-avatar-name {
+  word-break: break-all;
+}
+.inner-content-hidden .ant-popover-inner-content {
+  display: none;
+}

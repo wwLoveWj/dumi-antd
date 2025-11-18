@@ -1,20 +1,40 @@
 import {
   Button,
-  Col,
-  Form,
-  Row,
-  Space,
-  Input,
-  Select,
-  InputNumber,
   Card,
+  Col,
   DatePicker,
-  TimePicker,
+  Form,
+  Input,
+  InputNumber,
   Radio,
-  Slider,
   Rate,
-} from "antd";
-import WjBtnConfigForm from "../../WjBtnConfigForm/index";
+  Row,
+  Select,
+  Slider,
+  Space,
+  TimePicker,
+} from 'antd';
+import WjBtnConfigForm from '../../WjBtnConfigForm/index';
+import WjRichText from '../../WjRichText';
+import WjUserPopover, { WjUserPopoverProps } from '../../WjUserPopover';
+
+/** 组件库内置类型，不要暴露给用户 */
+export type InnerComponentMap = {
+  space: typeof Space;
+  col: typeof Col;
+  row: typeof Row;
+  button: typeof Button;
+  formItem: typeof Form.Item;
+  form: typeof Form;
+};
+
+/** 懒加载类型 */
+export type LazyComponentMap = {
+  // richText: typeof WjRichTextLazy;
+};
+export type ListComponentMap = {
+  //
+};
 
 export type ComponentsType = {
   card: typeof Card;
@@ -36,6 +56,8 @@ export type ComponentsType = {
   radio: typeof Radio.Group;
   slider: typeof Slider;
   rate: typeof Rate;
+  userPopover: WjUserPopoverProps;
+  richText: typeof WjRichText;
 };
 
 const components: ComponentsType = {
@@ -58,6 +80,8 @@ const components: ComponentsType = {
   radio: Radio.Group,
   slider: Slider,
   rate: Rate,
+  userPopover: WjUserPopover,
+  richText: WjRichText,
 };
 
 export default components;

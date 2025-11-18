@@ -31,7 +31,8 @@
     "sort": "npx sort-package-json",
     "start": "dumi dev",
     "test": "jest",
-    "test:coverage": "jest --coverage --silent"
+    "test:coverage": "jest --coverage --silent",
+     "publish:build": "npm publish --registry https://registry.npmjs.com/"
   },
   "dependencies": {
     "@antv/x6": "^2.13.1",

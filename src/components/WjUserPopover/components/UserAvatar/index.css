@@ -1,0 +1,12 @@
+.user-avatar .delete-button {
+  display: none;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.user-avatar:hover .delete-button {
+  display: block;
+}
+.user-avatar .user-avatar-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

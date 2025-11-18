@@ -1,0 +1,82 @@
+.popover-wrapper-list {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.popover-wrapper-list .list-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  width: 0;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.popover-wrapper-list .list-content:hover {
+  background-color: #e9f4fd;
+}
+.popover-wrapper-list .checkbox {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  line-height: 36px;
+  text-align: center;
+  background-color: #1890ff;
+  border-radius: 18px;
+}
+.popover-wrapper-list .title {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding-right: 13px;
+  overflow: hidden;
+  font-weight: 500;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.popover-wrapper-list .title .position {
+  padding-left: 8px;
+  color: #464f5c;
+  font-size: 12px;
+  font-weight: normal;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+.popover-wrapper-list .user-close {
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  color: #f55445;
+  visibility: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.popover-wrapper-list:hover .user-close {
+  visibility: visible;
+  opacity: 1;
+}
+.popover-wrapper-list .sub-title {
+  overflow: hidden;
+  color: #999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.popover-wrapper-list .content {
+  margin-right: 12px;
+  margin-left: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ant-list-item {
+  padding: 4px 0;
+}
