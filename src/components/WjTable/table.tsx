@@ -5,6 +5,7 @@ import { isObject } from 'lodash-es';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import { WjForm, WjFormColumnsPropsType } from '../WjForm';
 import TableFooterRender from './components/TableFooterRender';
+import useScroll from './hooks/useScroll';
 import useTableSelection from './hooks/useTableSelection';
 import './style.less';
 import { WjTableProps } from './type';
@@ -12,6 +13,7 @@ import { WjTableProps } from './type';
 // ForwardedRef<HTMLDivElement>
 const WjTable = forwardRef<any, WjTableProps>((props, ref) => {
   const {
+    size = 'small',
     selectedRowLens = 0,
     title,
     request,
@@ -30,6 +32,9 @@ const WjTable = forwardRef<any, WjTableProps>((props, ref) => {
     ...restProps
   } = props;
   const formRef = useRef<FormInstance>();
+  const { scroll, tableAreaRef, tableFooterAreaRef } = useScroll(props, {
+    size,
+  });
   // ============================表单配置相关==============================
   const getCurrent = () => {
     if (paginationType === 'cursor') return;
@@ -153,7 +158,7 @@ const WjTable = forwardRef<any, WjTableProps>((props, ref) => {
           />
         </div>
       )}
-      <div className={'tableLayout'}>
+      <div className={'tableLayout'} ref={tableAreaRef}>
         <Spin spinning={loading}>
           <div className={'tableOperations'}>
             {createBtnOperations && createBtnOperations?.length > 0 && (
@@ -178,27 +183,28 @@ const WjTable = forwardRef<any, WjTableProps>((props, ref) => {
             rowSelection={rowSelection}
             columns={columns?.filter((item) => !item.hideInTable)}
             pagination={false}
-            scroll={{ y: 'auto-content' }}
+            scroll={scroll}
             dataSource={
               dataSource && Array.isArray(dataSource)
                 ? dataSource
                 : (data?.list as []) || []
             }
           />
-          {/* 分页处理 */}
-          <TableFooterRender
-            tableProps={props}
-            res={data}
-            queryState={queryState}
-            data={dataSource || data?.list}
-            handlePaginationChange={handlePaginationChange}
-            pagination={{ ...pagination, total: data?.total }}
-            selectionButtonsRender={selectionButtonsRender}
-            footer={footer}
-            request={request}
-            query={query}
-          />
-          {/* <div>
+          <div ref={tableFooterAreaRef}>
+            {/* 分页处理 */}
+            <TableFooterRender
+              tableProps={props}
+              res={data}
+              queryState={queryState}
+              data={dataSource || data?.list}
+              handlePaginationChange={handlePaginationChange}
+              pagination={{ ...pagination, total: data?.total }}
+              selectionButtonsRender={selectionButtonsRender}
+              footer={footer}
+              request={request}
+              query={query}
+            />
+            {/* <div>
             <Space>
               {(batchOpertions || [])?.map((item) => (
                 <Button
@@ -213,6 +219,7 @@ const WjTable = forwardRef<any, WjTableProps>((props, ref) => {
               ))}
             </Space>
           </div> */}
+          </div>
         </Spin>
       </div>
     </div>
