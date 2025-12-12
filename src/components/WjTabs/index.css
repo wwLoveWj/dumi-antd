@@ -1,0 +1,60 @@
+.ms-tabs:not(.ant-tabs-card).ant-tabs-top .ant-tabs-tab {
+  padding: 9px 0;
+  color: #78858f;
+  font-size: 14px;
+}
+.ms-tabs:not(.ant-tabs-card).ant-tabs-left .ant-tabs-nav-list {
+  padding: 0 16px;
+}
+.ms-tabs:not(.ant-tabs-card).ant-tabs-left .ant-tabs-nav-list .ant-tabs-tab {
+  padding: 6px 8px;
+  color: #78858f;
+  font-size: 14px;
+  line-height: 20px;
+}
+.ms-tabs:not(.ant-tabs-card).ant-tabs-left .ant-tabs-nav-list .ant-tabs-tab:hover {
+  color: #20242e;
+  background: #f7f8fa;
+  border-radius: 4px;
+}
+.ms-tabs:not(.ant-tabs-card).ant-tabs-left .ant-tabs-nav-list .ant-tabs-tab + .ant-tabs-tab {
+  margin-top: 4px;
+}
+.ms-tabs:not(.ant-tabs-card).ant-tabs-left .ant-tabs-nav .ant-tabs-ink-bar,
+.ms-tabs:not(.ant-tabs-card).ant-tabs-left div > .ant-tabs-nav .ant-tabs-ink-bar {
+  left: 16px;
+  height: 14px !important;
+  margin-top: 9px;
+}
+.ms-tabs.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab:not(.ant-tabs-tab-active),
+.ms-tabs.ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab:not(.ant-tabs-tab-active) {
+  background-color: #f7f8fa;
+}
+.ms-tabs.ant-tabs-card .ant-tabs-tab {
+  padding: 5px 15px !important;
+  color: #464f5c;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 4px 4px 0 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Cascadia Code', 'Consolas', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+.ms-tabs.ant-tabs-card .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #20242e;
+  font-weight: 500;
+}
+.ms-tabs.ant-tabs-card .ant-tabs-tab + .ant-tabs-tab {
+  margin-left: 4px !important;
+}
+.ms-tabs.ant-tabs-card .ant-tabs-tab-remove {
+  margin-left: 4px;
+  padding: 0 2px;
+  font-size: 10px;
+}
+.ms-tabs.ant-tabs-card .ant-tabs-nav-add {
+  min-width: 32px;
+  margin-left: 4px;
+}
+.ms-tabs.ant-tabs-card .ant-tabs-nav .ant-tabs-nav-more {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
